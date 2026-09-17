@@ -17,7 +17,8 @@ venv.bak/
 .ipynb_checkpoints/
 
 # Streamlit Local Config
-.streamlit/
+.streamlit/*
+!.streamlit/config.toml
 
 # OS Specific
 .DS_Store
