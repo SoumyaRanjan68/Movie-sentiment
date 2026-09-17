@@ -1,0 +1,2218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Tata Power GET AI/ML Master Study Handbook - Movie Review Sentiment Analysis</title>
+<style>
+
+    @page {
+        size: A4;
+        margin: 18mm 15mm 18mm 15mm;
+        @bottom-right {
+            content: counter(page);
+            font-size: 8pt;
+            color: #64748B;
+        }
+        @bottom-left {
+            content: "Tata Power GET AI/ML Study Handbook | Movie Sentiment Analysis";
+            font-size: 8pt;
+            color: #64748B;
+        }
+    }
+    
+    body {
+        font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+        color: #1E293B;
+        line-height: 1.55;
+        font-size: 10pt;
+        background-color: #FFFFFF;
+    }
+    
+    .cover-page {
+        page-break-after: always;
+        padding-top: 35mm;
+        text-align: center;
+    }
+    
+    .cover-badge {
+        display: inline-block;
+        background: linear-gradient(135deg, #EEF2FF 0%, #E0E7FF 100%);
+        color: #3730A3;
+        font-size: 10.5pt;
+        font-weight: 700;
+        padding: 6px 18px;
+        border-radius: 9999px;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        margin-bottom: 20px;
+        border: 1px solid #C7D2FE;
+    }
+    
+    .cover-title {
+        font-size: 26pt;
+        font-weight: 800;
+        color: #0F172A;
+        line-height: 1.2;
+        margin-bottom: 10px;
+        letter-spacing: -0.02em;
+    }
+    
+    .cover-subtitle {
+        font-size: 13pt;
+        color: #475569;
+        margin-bottom: 30px;
+        font-weight: 400;
+    }
+    
+    .cover-divider {
+        width: 120px;
+        height: 4px;
+        background: linear-gradient(90deg, #2563EB, #4F46E5);
+        margin: 0 auto 30px auto;
+        border-radius: 2px;
+    }
+    
+    .meta-box {
+        display: inline-block;
+        text-align: left;
+        background-color: #F8FAFC;
+        border: 1px solid #E2E8F0;
+        border-radius: 10px;
+        padding: 18px 26px;
+        margin-top: 15px;
+        font-size: 10pt;
+        line-height: 1.8;
+    }
+    
+    .toc-grid {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 20px;
+    }
+    
+    .toc-grid div {
+        width: 48%;
+    }
+    
+    .toc-grid ul {
+        list-style-type: none;
+        padding-left: 0;
+    }
+    
+    .toc-grid li {
+        margin-bottom: 8pt;
+        font-size: 9.5pt;
+        border-bottom: 1px dashed #E2E8F0;
+        padding-bottom: 4pt;
+    }
+    
+    h1 {
+        font-size: 17pt;
+        font-weight: 700;
+        color: #0F172A;
+        border-bottom: 2px solid #E2E8F0;
+        padding-bottom: 6px;
+        margin-top: 24pt;
+        margin-bottom: 12pt;
+        page-break-after: avoid;
+    }
+    
+    .page-break-before {
+        page-break-before: always;
+    }
+    
+    h2 {
+        font-size: 13.5pt;
+        font-weight: 700;
+        color: #1E3A8A;
+        margin-top: 18pt;
+        margin-bottom: 8pt;
+        page-break-after: avoid;
+    }
+    
+    h3 {
+        font-size: 11.5pt;
+        font-weight: 700;
+        color: #334155;
+        margin-top: 14pt;
+        margin-bottom: 6pt;
+        page-break-after: avoid;
+    }
+    
+    h4 {
+        font-size: 10.5pt;
+        font-weight: 700;
+        color: #1E293B;
+        margin-top: 12pt;
+        margin-bottom: 5pt;
+        page-break-after: avoid;
+    }
+    
+    p, li {
+        color: #334155;
+        margin-bottom: 6pt;
+    }
+    
+    ul, ol {
+        padding-left: 20px;
+        margin-bottom: 10pt;
+    }
+    
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 12pt 0;
+        font-size: 9pt;
+        page-break-inside: avoid;
+    }
+    
+    th {
+        background-color: #0F172A;
+        color: #FFFFFF;
+        font-weight: 600;
+        text-align: left;
+        padding: 7px 9px;
+        border: 1px solid #0F172A;
+    }
+    
+    td {
+        padding: 6px 9px;
+        border: 1px solid #CBD5E1;
+        color: #334155;
+    }
+    
+    tr:nth-child(even) {
+        background-color: #F8FAFC;
+    }
+    
+    pre {
+        background-color: #F8FAFC;
+        border: 1px solid #E2E8F0;
+        border-radius: 6px;
+        padding: 8px 12px;
+        font-family: 'Consolas', 'Courier New', monospace;
+        font-size: 8.5pt;
+        line-height: 1.4;
+        overflow-x: auto;
+        margin: 8pt 0;
+        page-break-inside: avoid;
+        color: #0F172A;
+    }
+    
+    code {
+        font-family: 'Consolas', 'Courier New', monospace;
+        background-color: #F1F5F9;
+        color: #0F172A;
+        padding: 1.5px 4px;
+        border-radius: 4px;
+        font-size: 8.5pt;
+    }
+    
+    pre code {
+        background-color: transparent;
+        padding: 0;
+        color: inherit;
+    }
+    
+    blockquote {
+        border-left: 4px solid #3B82F6;
+        background-color: #EFF6FF;
+        margin: 10pt 0;
+        padding: 8px 12px;
+        border-radius: 0 6px 6px 0;
+        color: #1E40AF;
+        font-size: 9.5pt;
+    }
+    
+    .checkpoint-box {
+        background-color: #F8FAFC;
+        border: 1px solid #CBD5E1;
+        border-left: 5px solid #6366F1;
+        border-radius: 6px;
+        padding: 12px 16px;
+        margin: 16pt 0;
+        page-break-inside: avoid;
+    }
+    
+    .checkpoint-box h3 {
+        color: #4338CA;
+        margin-top: 0;
+        margin-bottom: 6pt;
+    }
+    
+    .answers-toggle {
+        background-color: #FFFFFF;
+        border: 1px solid #E2E8F0;
+        border-radius: 6px;
+        padding: 8px 12px;
+        margin-top: 8pt;
+        font-size: 9pt;
+    }
+    
+    .dialogue-box {
+        background-color: #F8FAFC;
+        border: 1px solid #E2E8F0;
+        border-radius: 8px;
+        padding: 12px 16px;
+        margin-bottom: 14pt;
+        page-break-inside: avoid;
+    }
+    
+    .dialogue-box h4 {
+        color: #1E3A8A;
+        margin-top: 0;
+        margin-bottom: 6pt;
+    }
+    
+    .resume-box {
+        background-color: #F8FAFC;
+        border: 1px solid #CBD5E1;
+        border-radius: 8px;
+        padding: 14px 18px;
+        margin: 14pt 0;
+        font-size: 9.5pt;
+    }
+    
+    .checklist p {
+        margin-bottom: 6pt;
+        font-size: 9.5pt;
+    }
+    
+    hr {
+        border: none;
+        border-top: 1px solid #E2E8F0;
+        margin: 16pt 0;
+    }
+    
+    a {
+        color: #2563EB;
+        text-decoration: none;
+    }
+    
+</style>
+</head>
+<body>
+
+
+<div class="cover-page">
+    <div class="cover-badge">TATA POWER GET AI/ML INTERVIEW COMPENDIUM</div>
+    <div class="cover-title">MOVIE REVIEW SENTIMENT ANALYSIS</div>
+    <div class="cover-subtitle">Complete Zero-to-Hero Study Handbook, Technical Guide & Interview Defense Manual</div>
+    <div class="cover-divider"></div>
+    
+    <div class="meta-box">
+        <div><strong>Target Candidate:</strong> Tata Power Graduate Engineer Trainee (GET) &ndash; AI/ML Track</div>
+        <div><strong>Preparation Horizon:</strong> 7-Day Intensive Interview Ready Curriculum</div>
+        <div><strong>Project Theme:</strong> Explainable NLP & Binary Sentiment Classification</div>
+        <div><strong>Tech Stack:</strong> Python, Pandas, NumPy, Scikit-Learn, TF-IDF, Logistic Regression, Streamlit</div>
+        <div><strong>Generalization Benchmark:</strong> 50,000 IMDB Records &bull; 90.23% Accuracy &bull; 90.38% F1-Score</div>
+        <div><strong>Repository:</strong> <a href="https://github.com/SoumyaRanjan68/Movie-sentiment">github.com/SoumyaRanjan68/Movie-sentiment</a></div>
+    </div>
+</div>
+
+<div class="page-break-before">
+    <h1>TABLE OF CONTENTS</h1>
+    <div class="toc-grid">
+        <div>
+            <ul>
+                <li><strong>PART 1:</strong> AI/ML Foundations (From Absolute Zero)</li>
+                <li><strong>PART 2:</strong> Essential Python for ML & Project Line-by-Line</li>
+                <li><strong>PART 3:</strong> NumPy & Numerical Vector Operations</li>
+                <li><strong>PART 4:</strong> Pandas Data Wrangling & Inspection</li>
+                <li><strong>PART 5:</strong> NLP Fundamentals & Text Preprocessing</li>
+                <li><strong>PART 6:</strong> TF-IDF Vectorization & Data Leakage</li>
+                <li><strong>PART 7:</strong> Machine Learning Classifiers (Logistic Regression & Naive Bayes)</li>
+                <li><strong>PART 8:</strong> Train/Test Splitting & Generalization</li>
+                <li><strong>PART 9:</strong> Model Evaluation, Metrics & Confusion Matrix</li>
+                <li><strong>PART 10:</strong> The Project Dataset (IMDB Benchmark)</li>
+                <li><strong>PART 11:</strong> End-to-End Project Pipeline Architecture</li>
+                <li><strong>PART 12:</strong> Project Source Code Line-by-Line Breakdown</li>
+            </ul>
+        </div>
+        <div>
+            <ul>
+                <li><strong>PART 13:</strong> Code-to-Theory Mapping Reference Matrix</li>
+                <li><strong>PART 14:</strong> Streamlit Web Interface & Architecture</li>
+                <li><strong>PART 15:</strong> Model Serialization & Joblib Artifacts</li>
+                <li><strong>PART 16:</strong> End-to-End Implementation from Scratch (15 Steps)</li>
+                <li><strong>PART 17:</strong> Common Debugging Scenarios & Troubleshooting</li>
+                <li><strong>PART 18:</strong> Real-World Limitations & Future Roadmap</li>
+                <li><strong>PART 19:</strong> 100+ Categorized Interview Questions & Answers</li>
+                <li><strong>PART 20:</strong> 30+ Realistic Project Cross-Questioning Chains</li>
+                <li><strong>PART 21:</strong> Tata Power AI/ML JD Mapping & Alignment</li>
+                <li><strong>PART 22:</strong> Resume Bullets & Word-by-Word Defense</li>
+                <li><strong>PART 23:</strong> Rapid Revision Cheat Sheets</li>
+                <li><strong>PART 24:</strong> 30-Minute Pre-Interview High-Impact Summary</li>
+                <li><strong>PART 25:</strong> Final Master Preparation Checklist</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="page-break-before">
+    <h1>PART 1 &mdash; AI/ML FOUNDATIONS (FROM ABSOLUTE ZERO)</h1>
+    <p><em>Welcome to the beginning. Even if you have never written a machine learning algorithm before, this section establishes the conceptual bedrock you need to explain and defend AI systems in a technical engineering interview.</em></p>
+
+    <h2>1. What is Artificial Intelligence (AI)?</h2>
+    <ul>
+        <li><strong>Simple Definition:</strong> Artificial Intelligence is the broad engineering discipline of creating computer systems that can perform tasks normally requiring human intelligence &mdash; such as recognizing images, understanding spoken words, making decisions, or translating languages.</li>
+        <li><strong>Real-World Example:</strong> An automated chess game, a power-grid load controller that reroutes electricity during a storm, or a smartphone camera that detects human faces.</li>
+        <li><strong>Technical Explanation:</strong> AI encompasses rule-based expert systems (if-then logic), search algorithms (A*, minimax), optimization, and learning algorithms. It is the umbrella term for any machine that mimics human cognitive functions.</li>
+        <li><strong>How it Relates to This Project:</strong> Our project is an AI system because it reads unstructured human natural language (a movie review) and makes an intelligent cognitive judgment: "Is this person satisfied or dissatisfied?"</li>
+    </ul>
+
+    <h2>2. What is Machine Learning (ML)?</h2>
+    <ul>
+        <li><strong>Simple Definition:</strong> Machine Learning is a specific branch of AI where, instead of explicitly writing thousands of rules by hand, we give the computer historical examples and let it <em>learn the statistical patterns on its own</em>.</li>
+        <li><strong>Real-World Example:</strong> Instead of writing 10,000 rules to identify spam emails ("if contains 'lottery' then spam", "if contains 'wire money' then spam"), you feed the computer 50,000 emails labeled as "Spam" or "Not Spam" and let it discover which word combinations indicate spam.</li>
+        <li><strong>Technical Explanation:</strong> Arthur Samuel (1959) defined ML as "the field of study that gives computers the ability to learn without being explicitly programmed." Mathematically, ML finds a mapping function $f: X ightarrow Y$ by minimizing an objective loss function over training data.</li>
+        <li><strong>How it Relates to This Project:</strong> We do not write rules like <code>if "good" in review: return positive</code>. We feed our machine learning model 39,665 labeled reviews, and it learns numerical weights for 10,000 terms automatically.</li>
+    </ul>
+
+    <h2>3. AI vs. Machine Learning vs. Deep Learning</h2>
+    <table>
+        <tr>
+            <th>Concept</th>
+            <th>What It Is</th>
+            <th>How It Works</th>
+            <th>Example</th>
+        </tr>
+        <tr>
+            <td><strong>Artificial Intelligence (AI)</strong></td>
+            <td>The broad universe of smart machines.</td>
+            <td>Rules, heuristics, logic, or algorithms.</td>
+            <td>Thermostat with automated control logic.</td>
+        </tr>
+        <tr>
+            <td><strong>Machine Learning (ML)</strong></td>
+            <td>Subfield of AI where machines learn from data.</td>
+            <td>Statistical models, linear equations, decision trees.</td>
+            <td><strong>Our Project: TF-IDF + Logistic Regression</strong></td>
+        </tr>
+        <tr>
+            <td><strong>Deep Learning (DL)</strong></td>
+            <td>Subfield of ML using multi-layered artificial neural networks.</td>
+            <td>Deep neural architectures (CNNs, RNNs, Transformers, LLMs).</td>
+            <td>ChatGPT, self-driving car vision systems.</td>
+        </tr>
+    </table>
+    <blockquote><strong>Interview Tip:</strong> When the interviewer asks <em>"Why did you use classical ML instead of Deep Learning?"</em>, answer: <em>"Classical ML with Logistic Regression provides complete mathematical explainability, sub-5 millisecond inference latency, low memory footprint (~15 MB), and zero GPU requirements, while still delivering 90.23% accuracy on benchmark data."</em></blockquote>
+
+    <h2>4. What is Supervised Learning?</h2>
+    <ul>
+        <li><strong>Simple Definition:</strong> A type of machine learning where the computer learns from data that already contains the "correct answers" (called <em>labels</em>). It is like studying for an exam with textbook problems accompanied by the answer key at the back.</li>
+        <li><strong>Real-World Example:</strong> Teaching a child to identify fruits by showing pictures with labels: "This is an apple", "This is an orange".</li>
+        <li><strong>Technical Explanation:</strong> Given a dataset $\mathcal{D} = \{(x_1, y_1), (x_2, y_2), \dots, (x_n, y_n)\}$ where $x_i \in \mathbb{R}^d$ are feature vectors and $y_i$ are ground-truth targets, the algorithm optimizes parameters $\mathbf{w}$ to minimize prediction error $\mathcal{L}(f(x_i; \mathbf{w}), y_i)$.</li>
+        <li><strong>How it Relates to This Project:</strong> Our project is 100% Supervised Learning. Every review in our training set came paired with its ground-truth sentiment label (<code>positive</code> = 1, <code>negative</code> = 0).</li>
+    </ul>
+
+    <h2>5. What is Unsupervised Learning?</h2>
+    <ul>
+        <li><strong>Simple Definition:</strong> Machine learning where the data has <em>no answer key or labels</em>. The algorithm's job is to discover hidden patterns, clusters, or groupings on its own.</li>
+        <li><strong>Real-World Example:</strong> Grouping supermarket customers into 4 distinct buying personas based on their purchase history, without knowing their categories in advance (Customer Segmentation).</li>
+        <li><strong>Technical Explanation:</strong> Algorithms like K-Means Clustering, Principal Component Analysis (PCA), and Autoencoders discover intrinsic geometric or statistical structures within $X$ without target $Y$.</li>
+        <li><strong>How it Relates to This Project:</strong> We did not use unsupervised learning for our core task because we already possessed 50,000 ground-truth human-annotated sentiment labels.</li>
+    </ul>
+
+    <h2>6. What is Classification?</h2>
+    <ul>
+        <li><strong>Simple Definition:</strong> A supervised learning task where the target output is a <strong>category or discrete label</strong> (e.g., Yes/No, Cat/Dog, High/Medium/Low).</li>
+        <li><strong>Real-World Example:</strong> A power transformer oil quality diagnostic system that classifies condition as "Healthy", "Warning", or "Faulty".</li>
+        <li><strong>Technical Explanation:</strong> In binary classification, the output $y \in \{0, 1\}$. In multi-class, $y \in \{1, 2, \dots, K\}$. The algorithm computes decision boundaries separating discrete classes in feature space.</li>
+        <li><strong>How it Relates to This Project:</strong> Our project is a <strong>Binary Classification</strong> task: predicting whether $y = 1$ (Positive) or $y = 0$ (Negative).</li>
+    </ul>
+
+    <h2>7. What is Regression?</h2>
+    <ul>
+        <li><strong>Simple Definition:</strong> A supervised learning task where the target output is a <strong>continuous numerical quantity</strong> (e.g., price, temperature, power demand).</li>
+        <li><strong>Real-World Example:</strong> Predicting tomorrow's peak electrical demand in Megawatts (MW) based on weather temperature and industrial activity.</li>
+        <li><strong>Technical Explanation:</strong> In regression, the output $y \in \mathbb{R}$. The model fits a continuous function to minimize Mean Squared Error (MSE).</li>
+        <li><strong>Note:</strong> Even though our algorithm is named <em>Logistic Regression</em>, it is strictly used for <strong>Classification</strong> because its continuous output is passed through a Sigmoid function to output class probabilities!</li>
+    </ul>
+
+    <h2>8. What is a Feature?</h2>
+    <ul>
+        <li><strong>Simple Definition:</strong> An individual measurable property or characteristic used by the machine learning model to make its decision.</li>
+        <li><strong>Real-World Example:</strong> When predicting house prices, features are: square footage, number of bedrooms, location, and year built.</li>
+        <li><strong>Technical Explanation:</strong> An input variable $x_j$ representing an axis in a $d$-dimensional feature space. A collection of $d$ features forms a feature vector $\mathbf{x} = [x_1, x_2, \dots, x_d]^T$.</li>
+        <li><strong>How it Relates to This Project:</strong> In our project, raw words cannot be fed directly to the model. Each unique vocabulary word or bigram (e.g., <code>"masterpiece"</code>, <code>"not good"</code>, <code>"boring"</code>) becomes a distinct <strong>feature column</strong> whose numerical value is its TF-IDF score. Our model uses exactly 10,000 features.</li>
+    </ul>
+
+    <h2>9. What is a Target (or Label)?</h2>
+    <ul>
+        <li><strong>Simple Definition:</strong> The actual outcome or answer that the model is trying to predict.</li>
+        <li><strong>Real-World Example:</strong> The actual selling price of the house, or whether an electrical transformer tripped (1) or did not trip (0).</li>
+        <li><strong>Technical Explanation:</strong> The dependent variable $y$. In our dataset, the raw column <code>sentiment</code> has text strings <code>"positive"</code> and <code>"negative"</code>.</li>
+        <li><strong>How it Relates to This Project:</strong> We map <code>"positive"</code> $ightarrow 1$ and <code>"negative"</code> $ightarrow 0$. This binary column <code>sentiment_label</code> is our target variable.</li>
+    </ul>
+
+    <h2>10. What is Training Data?</h2>
+    <ul>
+        <li><strong>Simple Definition:</strong> The portion of your historical dataset (usually 70%&ndash;80%) given to the model during the learning phase so it can discover patterns.</li>
+        <li><strong>Real-World Example:</strong> The practice problems and textbook exercises a student studies throughout the semester.</li>
+        <li><strong>How it Relates to This Project:</strong> We allocated 80% of our 49,582 clean reviews &mdash; exactly <strong>39,665 reviews</strong> &mdash; as our Training Set.</li>
+    </ul>
+
+    <h2>11. What is Testing Data (Holdout Set)?</h2>
+    <ul>
+        <li><strong>Simple Definition:</strong> The remaining portion of the dataset (usually 20%&ndash;30%) hidden from the model during training, used exclusively to test how well the model performs on completely unseen data.</li>
+        <li><strong>Real-World Example:</strong> The final unseen exam questions given to the student at the end of the year to test genuine comprehension rather than rote memorization.</li>
+        <li><strong>How it Relates to This Project:</strong> We set aside 20% &mdash; exactly <strong>9,917 reviews</strong> &mdash; as our Test Set. The model was evaluated on these 9,917 reviews to calculate our final 90.23% accuracy.</li>
+    </ul>
+
+    <h2>12. What is a Model?</h2>
+    <ul>
+        <li><strong>Simple Definition:</strong> The mathematical artifact or "formula" created by the machine learning algorithm after it finishes studying the training data.</li>
+        <li><strong>Real-World Example:</strong> A recipe created by a chef after experimenting with 1,000 ingredient combinations.</li>
+        <li><strong>Technical Explanation:</strong> A parameterized function $f(\mathbf{x}; \mathbf{w})$ where $\mathbf{w}$ are learned internal weights/coefficients. Before training, $\mathbf{w}$ are random or zero. After training, $\mathbf{w}$ represent fine-tuned values that accurately map inputs to predictions.</li>
+    </ul>
+
+    <h2>13. What Does "Training a Model" Actually Mean?</h2>
+    <ul>
+        <li><strong>Simple Definition:</strong> Training is the automated trial-and-error process where the computer adjusts its internal mathematical knobs (weights) to make its predictions as close as possible to the real answers.</li>
+        <li><strong>Real-World Example:</strong> An archer adjusting their bow angle after every shot until they consistently hit the bullseye.</li>
+        <li><strong>Technical Explanation:</strong> An optimization loop (e.g., L-BFGS, Stochastic Gradient Descent) that calculates the gradient of the loss function with respect to weights $rac{\partial \mathcal{L}}{\partial \mathbf{w}}$ and iteratively updates weights until the loss reaches a minimum.</li>
+    </ul>
+
+    <div class="checkpoint-box">
+        <h3>🎯 CHECK YOUR UNDERSTANDING &mdash; CHAPTER 1</h3>
+        <ol>
+            <li><strong>Q:</strong> Is our sentiment analysis project supervised or unsupervised? Why?</li>
+            <li><strong>Q:</strong> Why is our project considered a classification task and not a regression task?</li>
+            <li><strong>Q:</strong> What would happen if we trained our model on 100% of the data without saving a test set?</li>
+            <li><strong>Q:</strong> In one sentence, what is a "feature" in our movie review sentiment analysis project?</li>
+        </ol>
+        <div class="answers-toggle">
+            <strong>Answers:</strong>
+            <p>1. Supervised, because every review in our dataset comes with a human-provided ground truth label (positive or negative).<br>
+            2. Because the output is a discrete category (Positive or Negative), not a continuous numeric quantity.<br>
+            3. We would have no way to verify if the model truly learned generalizable patterns or simply memorized the training examples (overfitting).<br>
+            4. A feature is an individual vocabulary word or bigram whose numerical value is its TF-IDF score in that review.</p>
+        </div>
+    </div>
+</div>
+
+
+<div class="page-break-before">
+    <h1>PART 2 &mdash; PYTHON FOUNDATIONS FOR MACHINE LEARNING</h1>
+    <p><em>Machine learning engineers do not need to memorize every obscure Python syntax quirk. You only need to master the exact data structures and control flows that manipulate datasets and models. Below is every Python construct used in this project, explained from absolute zero.</em></p>
+
+    <h2>1. Variables and Dynamic Typing</h2>
+    <p>In Python, a variable is a named storage container for a value in computer memory. Python is dynamically typed, meaning you do not have to declare types like <code>int x</code>.</p>
+    <pre><code># Project Example:
+random_state = 42                # Integer: sets the random seed
+confidence_threshold = 0.50      # Float: decision boundary probability
+model_name = "Logistic Regression" # String: model name</code></pre>
+
+    <h2>2. Core Data Structures: Lists, Tuples, Sets, and Dictionaries</h2>
+    <table>
+        <tr>
+            <th>Data Structure</th>
+            <th>Syntax</th>
+            <th>Properties</th>
+            <th>Where It Appears in Our Project</th>
+        </tr>
+        <tr>
+            <td><strong>List</strong></td>
+            <td><code>[item1, item2]</code></td>
+            <td>Ordered, mutable, allows duplicate items.</td>
+            <td>Storing test reviews: <code>test_cases = ["Great film", "Awful film"]</code> in <code>src/predict.py</code></td>
+        </tr>
+        <tr>
+            <td><strong>Tuple</strong></td>
+            <td><code>(item1, item2)</code></td>
+            <td>Ordered, immutable (read-only), allows duplicates.</td>
+            <td>Specifying n-gram ranges: <code>ngram_range=(1, 2)</code> in <code>src/train_model.py</code></td>
+        </tr>
+        <tr>
+            <td><strong>Set</strong></td>
+            <td><code>{item1, item2}</code></td>
+            <td>Unordered, mutable, <strong>unique values only</strong>, $O(1)$ fast lookups.</td>
+            <td>Checking distinct vocabulary tokens and filtering stop words.</td>
+        </tr>
+        <tr>
+            <td><strong>Dictionary</strong></td>
+            <td><code>{key: value}</code></td>
+            <td>Key-value pairs, unique keys, $O(1)$ lookup time.</td>
+            <td>Contraction mapping: <code>CONTRACTION_MAP = {"don't": "do not"}</code> in <code>src/data_preprocessing.py</code></td>
+        </tr>
+    </table>
+
+    <h3>Line-by-Line Breakdown of Project Dictionary:</h3>
+    <pre><code>CONTRACTION_MAP = {
+    "don't": "do not",
+    "wasn't": "was not",
+    "can't": "cannot"
+}</code></pre>
+    <ul>
+        <li><code>CONTRACTION_MAP</code> is a Python dictionary variable.</li>
+        <li><code>"don't"</code> is the dictionary key (what we search for in raw reviews).</li>
+        <li><code>"do not"</code> is the dictionary value (the expanded replacement that preserves the word "not").</li>
+    </ul>
+
+    <h2>3. Conditional Statements (if / elif / else)</h2>
+    <p>Executes different blocks of code depending on whether a boolean expression is <code>True</code> or <code>False</code>.</p>
+    <pre><code># Actual Code from src/predict.py:
+sentiment = 'Positive' if pred_label == 1 else 'Negative'
+confidence = pos_prob if pred_label == 1 else neg_prob</code></pre>
+    <p><strong>Line-by-Line Explanation:</strong> This is a Python <em>ternary operator</em> (one-line if-else). If <code>pred_label</code> equals <code>1</code>, the variable <code>sentiment</code> becomes <code>'Positive'</code>; otherwise, it becomes <code>'Negative'</code>.</p>
+
+    <h2>4. Loops (for and while) and List Comprehensions</h2>
+    <p>A <code>for</code> loop iterates over items in a sequence (like a list or dictionary keys). A <em>list comprehension</em> is a concise, vectorized Python shorthand for creating lists.</p>
+    <pre><code># Standard For Loop vs. List Comprehension in src/predict.py:
+# Comprehension to extract top positive features:
+pos_features = [
+    {'term': self.feature_names[i], 'coefficient': round(float(self.coefficients[i]), 3)}
+    for i in top_pos_idx
+]</code></pre>
+    <p><strong>Line-by-Line Explanation:</strong> Loops over every index <code>i</code> inside the array <code>top_pos_idx</code>, creates a dictionary with the term name and its rounded coefficient, and gathers all of them into a new list named <code>pos_features</code> in a single line.</p>
+
+    <h2>5. Functions and Type Hints</h2>
+    <p>A function is a reusable block of code that takes inputs (arguments), executes logic, and returns an output.</p>
+    <pre><code># Actual Function from src/predict.py:
+def predict_sentiment(review_text: str, models_dir: str = 'models') -> Dict[str, Any]:
+    predictor = SentimentPredictor(models_dir=models_dir)
+    return predictor.predict(review_text)</code></pre>
+    <ul>
+        <li><code>def predict_sentiment(...)</code>: Declares the function name.</li>
+        <li><code>review_text: str</code>: Parameter type hint indicating input should be a string.</li>
+        <li><code>models_dir: str = 'models'</code>: Default parameter; if caller doesn't specify a folder, it defaults to <code>'models'</code>.</li>
+        <li><code>-> Dict[str, Any]</code>: Return type hint indicating the function sends back a dictionary containing mixed data types.</li>
+    </ul>
+
+    <h2>6. Object-Oriented Programming: Classes and Objects</h2>
+    <p>A <strong>Class</strong> is a blueprint for creating objects (bundling data and functions together). An <strong>Object</strong> is a concrete instance of that blueprint.</p>
+    <pre><code># Actual Class from src/predict.py:
+class SentimentPredictor:
+    def __init__(self, models_dir: str = 'models'):
+        self.model = joblib.load(os.path.join(models_dir, 'best_model.joblib'))
+        self.vectorizer = joblib.load(os.path.join(models_dir, 'tfidf_vectorizer.joblib'))
+        
+    def predict(self, review_text: str) -> Dict[str, Any]:
+        # inference logic...</code></pre>
+    <ul>
+        <li><code>class SentimentPredictor:</code> Defines the class blueprint.</li>
+        <li><code>def __init__(self, ...):</code> The constructor method. Automatically runs when an object is instantiated. It loads the model and vectorizer from disk into memory <em>only once</em>.</li>
+        <li><code>self.model = ...</code>: Stores the loaded model inside the instance so all other methods can access it without reloading from disk.</li>
+    </ul>
+
+    <h2>7. Exception Handling (try / except)</h2>
+    <p>Prevents an application from crashing when an unexpected runtime error occurs.</p>
+    <pre><code>try:
+    predictor = load_predictor()
+    result = predictor.predict(user_input)
+except Exception as e:
+    st.error(f"Inference Engine Error: {e}")</code></pre>
+    <p><strong>Explanation:</strong> If the model file is missing or corrupted, the <code>try</code> block catches the error, jumps to <code>except</code>, and displays a clean user-friendly alert in Streamlit rather than crashing the web server.</p>
+</div>
+
+<div class="page-break-before">
+    <h1>PART 3 &mdash; NUMPY: HIGH-PERFORMANCE NUMERICAL COMPUTING</h1>
+
+    <h2>1. What is NumPy and Why Does Machine Learning Need It?</h2>
+    <p>NumPy (Numerical Python) is the foundational library for scientific computing in Python. Standard Python lists are slow because every element is a full Python object requiring runtime type-checking. NumPy introduces the <code>ndarray</code> (N-dimensional array), which stores homogeneous data in <strong>continuous memory blocks</strong> and executes mathematical operations in compiled C.</p>
+
+    <h2>2. Array Dimensions and Shape</h2>
+    <ul>
+        <li><strong>1D Array (Vector):</strong> A single row of numbers (e.g., predicted probabilities: <code>[0.05, 0.95]</code>, shape: <code>(2,)</code>).</li>
+        <li><strong>2D Array (Matrix):</strong> A grid of numbers with rows and columns (e.g., our TF-IDF feature matrix with 39,665 rows and 10,000 columns, shape: <code>(39665, 10000)</code>).</li>
+    </ul>
+
+    <h2>3. Key NumPy Functions Used in Our Project</h2>
+    <table>
+        <tr>
+            <th>Function</th>
+            <th>What It Does</th>
+            <th>Project Application</th>
+        </tr>
+        <tr>
+            <td><code>np.exp(z)</code></td>
+            <td>Calculates natural exponential $e^z$.</td>
+            <td>Computes the Sigmoid activation formula $rac{1}{1 + e^{-z}}$ for probability estimation.</td>
+        </tr>
+        <tr>
+            <td><code>np.argsort(array)</code></td>
+            <td>Returns the indices that would sort an array.</td>
+            <td>Finds the top 15 most positive and negative coefficients in <code>get_global_top_features()</code>.</td>
+        </tr>
+        <tr>
+            <td><code>vec.nonzero()</code></td>
+            <td>Returns row and column indices of non-zero sparse matrix values.</td>
+            <td>Finds which specific words from the 10,000-vocabulary are present in the user's input review.</td>
+        </tr>
+    </table>
+</div>
+
+<div class="page-break-before">
+    <h1>PART 4 &mdash; PANDAS: DATA WRANGLING & EXPLORATION</h1>
+
+    <h2>1. What is Pandas?</h2>
+    <p>Pandas is Python's premier data manipulation library built directly on top of NumPy. It introduces two essential structures:
+    <ul>
+        <li><strong>Series:</strong> A 1-dimensional labeled array (represents a single column).</li>
+        <li><strong>DataFrame:</strong> A 2-dimensional tabular structure (rows and columns, exactly like an SQL table or Excel spreadsheet).</li>
+    </ul>
+
+    <h2>2. Critical Pandas Methods and Their Project Implementation</h2>
+    <table>
+        <tr>
+            <th>Method</th>
+            <th>What It Does</th>
+            <th>Actual Project Code Line</th>
+        </tr>
+        <tr>
+            <td><code>pd.read_csv()</code></td>
+            <td>Loads a CSV file from disk into a DataFrame.</td>
+            <td><code>df = pd.read_csv(raw_data_path)</code></td>
+        </tr>
+        <tr>
+            <td><code>df.shape</code></td>
+            <td>Returns a tuple of (rows, columns).</td>
+            <td><code>print(f"Raw dataset shape: {df.shape}")</code> $ightarrow (50000, 2)$</td>
+        </tr>
+        <tr>
+            <td><code>df.isnull().sum()</code></td>
+            <td>Counts missing (NaN) values per column.</td>
+            <td><code>missing_count = df.isnull().sum().sum()</code></td>
+        </tr>
+        <tr>
+            <td><code>df.duplicated()</code></td>
+            <td>Identifies duplicate rows based on column subsets.</td>
+            <td><code>duplicate_count = df.duplicated(subset=['review']).sum()</code></td>
+        </tr>
+        <tr>
+            <td><code>df.drop_duplicates()</code></td>
+            <td>Removes duplicate rows from DataFrame.</td>
+            <td><code>df = df.drop_duplicates(subset=['review']).reset_index(drop=True)</code></td>
+        </tr>
+        <tr>
+            <td><code>df['col'].apply()</code></td>
+            <td>Applies a custom Python function to every row.</td>
+            <td><code>df['cleaned_review'] = df['review'].apply(clean_text)</code></td>
+        </tr>
+        <tr>
+            <td><code>df['col'].map()</code></td>
+            <td>Substitutes each value with another value via dictionary.</td>
+            <td><code>df['sentiment_label'] = df['sentiment'].map({'positive': 1, 'negative': 0})</code></td>
+        </tr>
+        <tr>
+            <td><code>df['col'].value_counts()</code></td>
+            <td>Counts occurrences of each unique value.</td>
+            <td><code>print(df['sentiment'].value_counts())</code></td>
+        </tr>
+    </table>
+
+    <h3>Line-by-Line Breakdown of Project Data Ingestion:</h3>
+    <pre><code># From src/data_preprocessing.py:
+df = pd.read_csv('data/raw/imdb_reviews.csv')
+duplicate_count = df.duplicated(subset=['review']).sum()
+if duplicate_count > 0:
+    df = df.drop_duplicates(subset=['review']).reset_index(drop=True)
+df['sentiment_label'] = df['sentiment'].map({'positive': 1, 'negative': 0})</code></pre>
+    <ul>
+        <li><code>df.duplicated(subset=['review']).sum()</code> checks the <code>review</code> text column. It finds 418 reviews that are verbatim duplicates.</li>
+        <li><code>df.drop_duplicates(...)</code> discards those 418 rows so duplicate text cannot leak across training and test splits.</li>
+        <li><code>.reset_index(drop=True)</code> rebuilds the sequential row index from 0 to 49,581 without holes.</li>
+        <li><code>.map({'positive': 1, 'negative': 0})</code> transforms string categories into numeric binary ground truth for Scikit-Learn.</li>
+    </ul>
+
+    <div class="checkpoint-box">
+        <h3>🎯 CHECK YOUR UNDERSTANDING &mdash; CHAPTERS 2, 3 & 4</h3>
+        <ol>
+            <li><strong>Q:</strong> Why do we use a dictionary for our contraction mapping instead of a list?</li>
+            <li><strong>Q:</strong> Why must we convert target strings <code>"positive"</code> and <code>"negative"</code> to <code>1</code> and <code>0</code>?</li>
+            <li><strong>Q:</strong> What is the purpose of calling <code>.reset_index(drop=True)</code> after dropping duplicates?</li>
+        </ol>
+        <div class="answers-toggle">
+            <strong>Answers:</strong>
+            <p>1. Dictionaries provide $O(1)$ constant-time lookup for matching contractions, whereas lists require $O(N)$ scanning.<br>
+            2. Machine learning optimization algorithms rely on mathematical loss functions (e.g. log loss), which require numeric values.<br>
+            3. Dropping rows leaves missing gaps in the index (e.g., 0, 1, 3, 7). Resetting the index ensures a continuous sequence from 0 to $N-1$.</p>
+        </div>
+    </div>
+</div>
+
+
+<div class="page-break-before">
+    <h1>PART 5 &mdash; NATURAL LANGUAGE PROCESSING (NLP) FUNDAMENTALS</h1>
+
+    <h2>1. What is NLP and Why is it Necessary?</h2>
+    <p>Natural Language Processing (NLP) is the intersection of computer science, artificial intelligence, and computational linguistics. Human language is inherently unstructured, ambiguous, metaphorical, and non-linear. Computers, by contrast, are deterministic calculating engines built on binary arithmetic and linear algebra.</p>
+    <p><strong>The Core Challenge:</strong> A computer has no intrinsic understanding of what the letters <code>'g-o-o-d'</code> mean. To enable a machine learning model to classify sentiment, we must convert unstructured character sequences into a structured, numerical geometric representation where semantic relationships can be analyzed mathematically.</p>
+
+    <h2>2. Basic NLP Terminology</h2>
+    <ul>
+        <li><strong>Token:</strong> The fundamental atomic unit of text (typically an individual word or subword).</li>
+        <li><strong>Sentence:</strong> An ordered grammatical sequence of tokens terminated by punctuation.</li>
+        <li><strong>Document:</strong> A complete individual text record (in our project, a single movie review).</li>
+        <li><strong>Corpus:</strong> A collection of all documents under analysis (in our project, all 50,000 IMDB reviews).</li>
+        <li><strong>Vocabulary:</strong> The set of all unique, distinct tokens present across the corpus.</li>
+    </ul>
+
+    <h2>3. The Preprocessing Techniques: What, Why, and Project Usage</h2>
+    <table>
+        <tr>
+            <th>Technique</th>
+            <th>What It Does</th>
+            <th>Why We Need It</th>
+            <th>Used in Project?</th>
+            <th>Engineering Justification</th>
+        </tr>
+        <tr>
+            <td><strong>HTML Stripping</strong></td>
+            <td>Removes web tags like <code>&lt;br /&gt;</code>, <code>&lt;p&gt;</code>.</td>
+            <td>HTML tags are website rendering artifacts, not movie review sentiment.</td>
+            <td><strong>YES</strong></td>
+            <td>Regex <code>re.sub(r'&lt;.*?&gt;', ' ', text)</code> cleanly purges 100% of HTML artifacts.</td>
+        </tr>
+        <tr>
+            <td><strong>Contraction Expansion</strong></td>
+            <td>Expands <code>"didn't"</code> $ightarrow$ <code>"did not"</code>.</td>
+            <td>Preserves the critical negation word <code>"not"</code> before punctuation cleaning.</td>
+            <td><strong>YES</strong></td>
+            <td>Essential for sentiment polarity. Prevents <code>"didn't like"</code> from turning into <code>"like"</code>.</td>
+        </tr>
+        <tr>
+            <td><strong>Lowercasing</strong></td>
+            <td>Converts all characters to lowercase.</td>
+            <td>Unifies vocabulary so <code>"Masterpiece"</code>, <code>"masterpiece"</code>, and <code>"MASTERPIECE"</code> map to one token.</td>
+            <td><strong>YES</strong></td>
+            <td><code>text.lower()</code> prevents vocabulary explosion and duplicate dimensions.</td>
+        </tr>
+        <tr>
+            <td><strong>Punctuation Removal</strong></td>
+            <td>Removes symbols like commas, periods, quotes.</td>
+            <td>Removes noise so <code>"acting,"</code> and <code>"acting."</code> map to <code>"acting"</code>.</td>
+            <td><strong>YES</strong></td>
+            <td>Replaces non-alphanumeric characters with spaces using regex <code>[^a-zA-Z0-9\s]</code>.</td>
+        </tr>
+        <tr>
+            <td><strong>Whitespace Collapsing</strong></td>
+            <td>Reduces multiple consecutive spaces to one.</td>
+            <td>Ensures clean token boundaries during tokenization.</td>
+            <td><strong>YES</strong></td>
+            <td>Regex <code>\s+</code> replaced by single space, followed by <code>.strip()</code>.</td>
+        </tr>
+        <tr>
+            <td><strong>Stopword Stripping (Blind)</strong></td>
+            <td>Deletes high-frequency English words.</td>
+            <td>Reduces feature space dimensionality.</td>
+            <td><strong>NO (Avoided)</strong></td>
+            <td><strong>THE NEGATION TRAP:</strong> Standard stopword lists contain <code>"not"</code>, <code>"no"</code>, <code>"never"</code>. Blindly deleting them turns <code>"not good"</code> into <code>"good"</code>, inverting sentiment!</td>
+        </tr>
+        <tr>
+            <td><strong>Stemming</strong></td>
+            <td>Heuristically chops word suffixes (e.g. <code>"running"</code> $ightarrow$ <code>"run"</code>).</td>
+            <td>Groups morphological variants of words together.</td>
+            <td><strong>NO</strong></td>
+            <td>Stemmers (like Porter) corrupt words (e.g. <code>"caring"</code> $ightarrow$ <code>"car"</code>), distorting semantic tone.</td>
+        </tr>
+        <tr>
+            <td><strong>Lemmatization</strong></td>
+            <td>Uses vocabulary and grammar to find dictionary base form (lemma).</td>
+            <td>More linguistically accurate than stemming.</td>
+            <td><strong>NO</strong></td>
+            <td>Requires Part-of-Speech (POS) tagging which increases latency 10x with zero accuracy gain over our 10,000-ngram TF-IDF space.</td>
+        </tr>
+    </table>
+
+    <h2>4. N-Grams: Unigrams, Bigrams, and Trigrams</h2>
+    <ul>
+        <li><strong>Unigram (1-gram):</strong> A single isolated word: <code>["the", "movie", "was", "not", "good"]</code>.</li>
+        <li><strong>Bigram (2-gram):</strong> A sequence of two consecutive words: <code>["the movie", "movie was", "was not", "not good"]</code>.</li>
+        <li><strong>Trigram (3-gram):</strong> A sequence of three consecutive words: <code>["the movie was", "was not good"]</code>.</li>
+    </ul>
+    <blockquote><strong>Why Bigrams are Essential in Our Project:</strong> Under unigrams alone, the sentence <em>"not good"</em> is split into two separate words: <code>"not"</code> and <code>"good"</code>. The word <code>"good"</code> has a positive weight, confusing the classifier. By setting <code>ngram_range=(1, 2)</code>, our vectorizer creates the bigram <code>"not good"</code> as an independent feature. In our trained Logistic Regression model, <code>"not good"</code> received a massive negative coefficient of <strong>-2.646</strong>, completely resolving the negation!</blockquote>
+</div>
+
+<div class="page-break-before">
+    <h1>PART 6 &mdash; TF-IDF VECTORIZATION & DATA LEAKAGE</h1>
+
+    <h2>1. The Limitations of Simple Bag-of-Words (CountVectorizer)</h2>
+    <p>The simplest way to convert text to numbers is <em>Bag of Words</em>: count how many times each word appears in a document. For example, if "great" appears 3 times, its feature value is 3.</p>
+    <p><strong>The Fatal Flaw:</strong> In any movie review corpus, words like <code>"movie"</code>, <code>"film"</code>, <code>"watch"</code>, and <code>"scene"</code> appear in virtually every single review. In Bag-of-Words, these generic words receive the highest counts, dominating the feature space even though they contain <strong>zero discriminative sentiment information</strong>!</p>
+
+    <h2>2. The Core Intuition of TF-IDF</h2>
+    <p>TF-IDF fixes Bag-of-Words with a simple, brilliant intuition:</p>
+    <ol>
+        <li>If a word appears frequently in a <em>specific review</em>, it must be important to that review (&uarr; <strong>High Term Frequency</strong>).</li>
+        <li>However, if that same word appears in <em>almost every review across the entire dataset</em>, it is useless for distinguishing positive from negative (&darr; <strong>Low Inverse Document Frequency penalty</strong>).</li>
+        <li>Therefore, words that are frequent in <em>one review</em> but rare across the <em>whole corpus</em> (like <code>"masterpiece"</code> or <code>"abysmal"</code>) receive the <strong>highest TF-IDF score</strong>!</li>
+    </ol>
+
+    <h2>3. The Mathematical Formula (Scikit-Learn Implementation)</h2>
+    <p>$$	ext{TF-IDF}(t, d, D) = 	ext{TF}(t, d) 	imes 	ext{IDF}(t, D)$$</p>
+    
+    <h3>Term Frequency (TF):</h3>
+    <p>In our project, we enabled <code>sublinear_tf=True</code>. Instead of raw counts, term frequency is scaled logarithmically:</p>
+    <p>$$	ext{TF}(t, d) = 1 + \log(	ext{count}(t, d)) \quad 	ext{for count} > 0$$</p>
+    <p><em>Why? A word appearing 20 times in a long review is not 20 times more important than a word appearing once. Log scaling dampens the dominance of repeated words.</em></p>
+
+    <h3>Inverse Document Frequency (IDF) with Smooth IDF:</h3>
+    <p>$$	ext{IDF}(t) = \log\left(rac{1 + N}{1 + 	ext{DF}(t)}ight) + 1$$</p>
+    <ul>
+        <li>$N$: Total number of documents in the training corpus ($N = 39,665$).</li>
+        <li>$	ext{DF}(t)$: Document Frequency &mdash; the number of documents containing term $t$.</li>
+        <li>The constant $+1$ in the numerator and denominator prevents division by zero.</li>
+        <li>The $+1$ outside the logarithm prevents terms with $	ext{DF}(t) = N$ from receiving zero weight entirely.</li>
+    </ul>
+
+    <h2>4. Step-by-Step Numerical Example</h2>
+    <p>Suppose our corpus has $N = 10,000$ reviews. Consider two terms in a review:</p>
+    <table>
+        <tr>
+            <th>Word</th>
+            <th>Count in this review</th>
+            <th>DF (Total reviews containing word)</th>
+            <th>Calculated IDF</th>
+            <th>Final TF-IDF Score</th>
+            <th>Interpretation</th>
+        </tr>
+        <tr>
+            <td><code>"movie"</code></td>
+            <td>4</td>
+            <td>9,900</td>
+            <td>$\log\left(rac{10001}{9901}ight) + 1 = \mathbf{1.01}$</td>
+            <td>$(1 + \log(4)) 	imes 1.01 = \mathbf{2.41}$</td>
+            <td>Penalized heavily because it appears everywhere.</td>
+        </tr>
+        <tr>
+            <td><code>"masterpiece"</code></td>
+            <td>2</td>
+            <td>85</td>
+            <td>$\log\left(rac{10001}{86}ight) + 1 = \mathbf{5.75}$</td>
+            <td>$(1 + \log(2)) 	imes 5.75 = \mathbf{9.74}$</td>
+            <td><strong>Boosted &times;4 higher</strong> because it is rare and informative!</td>
+        </tr>
+    </table>
+
+    <h2>5. Critical Parameters of TfidfVectorizer in Our Project</h2>
+    <pre><code>vectorizer = TfidfVectorizer(
+    ngram_range=(1, 2),
+    max_features=10000,
+    min_df=3,
+    sublinear_tf=True
+)</code></pre>
+    <ul>
+        <li><code>ngram_range=(1, 2)</code>: Extracts both single words and consecutive 2-word combinations to capture phrases like <code>"not good"</code>.</li>
+        <li><code>max_features=10000</code>: Selects the top 10,000 terms ordered by term frequency across the corpus. Discards the long tail of 200,000+ noisy terms, preventing overfitting and reducing RAM usage.</li>
+        <li><code>min_df=3</code>: Discards terms appearing in fewer than 3 documents. Purges rare typos (e.g. <code>"goooood"</code>) and random noise.</li>
+        <li><code>sublinear_tf=True</code>: Applies logarithmic scaling $1 + \log(	ext{tf})$ to term frequency.</li>
+    </ul>
+
+    <h2>6. What is Data Leakage and How Did We Prevent It?</h2>
+    <p><strong>Data Leakage</strong> is a fatal machine learning flaw where information from the testing/evaluation dataset leaks into the training process before model fitting. This causes models to look amazing during development but completely fail in production.</p>
+
+    <blockquote>
+        <h3>THE CARDINAL RULE OF VECTORIZATION:</h3>
+        <p><code>fit_transform(X_train)</code> on Training Data &bull; <code>transform(X_test)</code> on Testing Data</p>
+    </blockquote>
+    <ul>
+        <li><code>fit()</code> calculates the vocabulary list and the global IDF weights ($	ext{DF}(t)$ for all words).</li>
+        <li>If you call <code>fit(X)</code> on the full dataset, your model learns IDF scores and vocabulary frequencies calculated from the <strong>unseen test set</strong> &mdash; a direct data leak!</li>
+        <li>In our project:
+            <pre><code># Correct Implementation in src/train_model.py:
+X_train_tfidf = vectorizer.fit_transform(X_train) # Learns vocab & IDF weights ONLY on train
+X_test_tfidf = vectorizer.transform(X_test)       # Reuses train weights to transform test</code></pre>
+        </li>
+    </ul>
+
+    <div class="checkpoint-box">
+        <h3>🎯 CHECK YOUR UNDERSTANDING &mdash; CHAPTERS 5 & 6</h3>
+        <ol>
+            <li><strong>Q:</strong> Why does TF-IDF assign a low score to the word "film" in a movie dataset?</li>
+            <li><strong>Q:</strong> Why do we expand contractions like <code>"didn't"</code> before removing punctuation?</li>
+            <li><strong>Q:</strong> What is the difference between <code>fit_transform()</code> and <code>transform()</code>?</li>
+            <li><strong>Q:</strong> What is a sparse matrix and why is it necessary for TF-IDF?</li>
+        </ol>
+        <div class="answers-toggle">
+            <strong>Answers:</strong>
+            <p>1. Because "film" appears in almost all reviews, its document frequency $	ext{DF}(t)$ is near $N$, making its IDF weight close to 1.0.<br>
+            2. To prevent "didn't" from becoming "didnt" or losing the negation "not" when punctuation is stripped.<br>
+            3. <code>fit_transform()</code> computes vocabulary and IDF parameters and transforms data. <code>transform()</code> applies pre-computed parameters to new data without updating them.<br>
+            4. In a 10,000-word vocabulary, any single review only uses ~150 words. A sparse matrix only stores the non-zero indices and values in memory, saving 98% of RAM.</p>
+        </div>
+    </div>
+</div>
+
+
+<div class="page-break-before">
+    <h1>PART 7 &mdash; MACHINE LEARNING CLASSIFIERS: LOGISTIC REGRESSION & NAIVE BAYES</h1>
+
+    <h2>1. The Classification Task in Feature Space</h2>
+    <p>Once TF-IDF transforms each review into a 10,000-dimensional numerical vector $\mathbf{x} = [x_1, x_2, \dots, x_{10000}]^T$, our machine learning task is to learn a mathematical decision boundary that separates positive vectors from negative vectors.</p>
+
+    <h2>2. Model 1: Logistic Regression (Winning Model &mdash; 90.23% Accuracy)</h2>
+    <p>Despite its name containing "Regression", Logistic Regression is a <strong>linear classification algorithm</strong> that predicts the probability of a categorical outcome.</p>
+
+    <h3>Mathematical Formulation:</h3>
+    <ol>
+        <li><strong>Linear Score Calculation:</strong> The model computes a weighted sum of all input features plus an intercept (bias) term:
+            $$z = w_0 + w_1 x_1 + w_2 x_2 + \dots + w_d x_d = \mathbf{w}^T \mathbf{x} + b$$
+            Here, each $w_j$ represents the learned coefficient for word $j$. A positive weight (e.g. $+2.4$ for <code>"masterpiece"</code>) pushes the score toward Positive; a negative weight (e.g. $-2.6$ for <code>"not good"</code>) pulls it toward Negative.
+        </li>
+        <li><strong>Sigmoid (Logistic) Function:</strong> The continuous linear score $z \in (-\infty, +\infty)$ is mapped into a valid probability $P \in (0, 1)$ using the standard Sigmoid curve:
+            $$\sigma(z) = rac{1}{1 + e^{-z}} = P(y=1|\mathbf{x})$$
+            <ul>
+                <li>If $z = 0 \implies \sigma(0) = rac{1}{1 + 1} = 0.50$ (Exact boundary).</li>
+                <li>If $z = +3 \implies \sigma(3) pprox 0.95$ (95% confident Positive).</li>
+                <li>If $z = -3 \implies \sigma(-3) pprox 0.05$ (5% positive $\implies$ 95% confident Negative).</li>
+            </ul>
+        </li>
+        <li><strong>Decision Threshold:</strong> By default, if $P(y=1|\mathbf{x}) \ge 0.50$, the review is classified as <strong>Positive (1)</strong>; otherwise, <strong>Negative (0)</strong>.</li>
+        <li><strong>Binary Cross-Entropy Loss (Log-Loss):</strong> The objective function minimized during training:
+            $$\mathcal{L}(\mathbf{w}) = -rac{1}{N} \sum_{i=1}^N \left[ y_i \log(\hat{y}_i) + (1 - y_i) \log(1 - \hat{y}_i) ight] + rac{1}{2C} \|\mathbf{w}\|_2^2$$
+            The term $rac{1}{2C} \|\mathbf{w}\|_2^2$ is <strong>L2 Regularization (Ridge penalty)</strong>, which shrinks large weights to prevent overfitting on specific words. The parameter $C=1.0$ controls the trade-off between fitting training data and keeping weights small.
+        </li>
+    </ol>
+
+    <h2>3. Model 2: Multinomial Naive Bayes (Baseline &mdash; 86.95% Accuracy)</h2>
+    <p>A probabilistic classifier based on <strong>Bayes' Theorem</strong> tailored for discrete word counts and frequencies.</p>
+
+    <h3>Bayes' Theorem:</h3>
+    <p>$$P(	ext{Class}|X) = rac{P(	ext{Class}) 	imes P(X|	ext{Class})}{P(X)}$$</p>
+    <ul>
+        <li>$P(	ext{Class})$ is the <strong>Prior Probability</strong> (50% for positive, 50% for negative in our balanced dataset).</li>
+        <li>$P(X|	ext{Class})$ is the <strong>Likelihood</strong> of observing these specific words given the sentiment class.</li>
+    </ul>
+
+    <h3>The "Naive" Assumption:</h3>
+    <p>Naive Bayes assumes that all words in the document are <strong>conditionally independent of one another</strong> given the class label:</p>
+    <p>$$P(w_1, w_2, \dots, w_n|	ext{Class}) = \prod_{i=1}^n P(w_i|	ext{Class})$$</p>
+
+    <h3>Laplace (Additive) Smoothing ($lpha = 1.0$):</h3>
+    <p>$$\hat{P}(w_i|	ext{Class}) = rac{	ext{Count}(w_i, 	ext{Class}) + lpha}{\sum_{w} 	ext{Count}(w, 	ext{Class}) + lpha \cdot |V|}$$</p>
+    <p><em>Why is it mandatory? Without Laplace smoothing ($lpha=0$), if a test review contains a single word never seen in positive training reviews, $P(w|	ext{Positive}) = 0$. Because all probabilities are multiplied together, the entire calculation collapses to zero ($0 	imes \dots = 0$)! Adding $lpha=1$ ensures every word has a tiny non-zero probability.</em></p>
+
+    <h2>4. Why Did Logistic Regression Outperform Naive Bayes?</h2>
+    <table>
+        <tr>
+            <th>Dimension</th>
+            <th>Logistic Regression</th>
+            <th>Multinomial Naive Bayes</th>
+        </tr>
+        <tr>
+            <td><strong>Paradigm</strong></td>
+            <td><strong>Discriminative</strong>: Directly models decision boundary $P(y|X)$.</td>
+            <td><strong>Generative</strong>: Models joint distribution $P(X, y)$.</td>
+        </tr>
+        <tr>
+            <td><strong>Feature Correlation</strong></td>
+            <td><strong>Robust</strong>: Learns optimal joint weights for correlated words and bigrams.</td>
+            <td><strong>Fragile</strong>: Falsely assumes words are independent (e.g. "special" and "effects").</td>
+        </tr>
+        <tr>
+            <td><strong>Measured Accuracy</strong></td>
+            <td><strong>90.23% (Winning Model)</strong></td>
+            <td>86.95%</td>
+        </tr>
+        <tr>
+            <td><strong>Measured F1-Score</strong></td>
+            <td><strong>90.38%</strong></td>
+            <td>87.18%</td>
+        </tr>
+    </table>
+</div>
+
+<div class="page-break-before">
+    <h1>PART 8 &mdash; TRAIN/TEST SPLIT & GENERALIZATION</h1>
+
+    <h2>1. The Goal of Machine Learning: Generalization</h2>
+    <p>The true measure of a machine learning system is not how well it remembers training examples, but how accurately it performs on <strong>fresh, unseen data</strong> (Generalization). Memorizing the training data is called <strong>Overfitting</strong>.</p>
+
+    <h2>2. Stratified Train/Test Split (80% Train, 20% Test)</h2>
+    <pre><code># Actual Project Code in src/train_model.py:
+X_train, X_test, y_train, y_test = train_test_split(
+    X, y,
+    test_size=0.20,
+    random_state=42,
+    stratify=y
+)</code></pre>
+    <ul>
+        <li><code>test_size=0.20</code>: Exactly 20% of data (9,917 reviews) is held out as the test set. 80% (39,665 reviews) is reserved for training.</li>
+        <li><code>random_state=42</code>: Fixes the pseudo-random number generator seed, ensuring identical data partitions every time the code is executed (100% scientific reproducibility).</li>
+        <li><code>stratify=y</code>: <strong>Stratification</strong> ensures the exact percentage of positive (50.2%) and negative (49.8%) reviews is preserved in both train and test partitions. Prevents sampling bias.</li>
+    </ul>
+</div>
+
+<div class="page-break-before">
+    <h1>PART 9 &mdash; MODEL EVALUATION, METRICS & CONFUSION MATRIX</h1>
+
+    <h2>1. The Confusion Matrix ($2 	imes 2$)</h2>
+    <p>A confusion matrix is an unvarnished cross-tabulation of ground-truth labels vs. model predictions:</p>
+    <table>
+        <tr>
+            <th colspan="2" rowspan="2"></th>
+            <th colspan="2">Model Prediction</th>
+        </tr>
+        <tr>
+            <th>Predicted Negative (0)</th>
+            <th>Predicted Positive (1)</th>
+        </tr>
+        <tr>
+            <th rowspan="2">Ground Truth</th>
+            <th>Actual Negative (0)</th>
+            <td><strong>True Negative (TN)</strong><br>Correctly identified negative</td>
+            <td><strong>False Positive (FP)</strong><br>Type I Error (False Alarm)</td>
+        </tr>
+        <tr>
+            <th>Actual Positive (1)</th>
+            <td><strong>False Negative (FN)</strong><br>Type II Error (Missed Case)</td>
+            <td><strong>True Positive (TP)</strong><br>Correctly identified positive</td>
+        </tr>
+    </table>
+
+    <h2>2. Evaluation Formulas & Numerical Walkthrough</h2>
+    <ul>
+        <li><strong>Accuracy:</strong> The proportion of all predictions that were correct:
+            $$	ext{Accuracy} = rac{TP + TN}{TP + TN + FP + FN}$$
+        </li>
+        <li><strong>Precision:</strong> When the model predicts Positive, how often is it right?
+            $$	ext{Precision} = rac{TP}{TP + FP}$$
+        </li>
+        <li><strong>Recall (Sensitivity):</strong> Out of all actual Positive samples, how many did the model catch?
+            $$	ext{Recall} = rac{TP}{TP + FN}$$
+        </li>
+        <li><strong>F1-Score:</strong> The harmonic mean of Precision and Recall:
+            $$	ext{F1-Score} = 2 	imes rac{	ext{Precision} 	imes 	ext{Recall}}{	ext{Precision} + 	ext{Recall}} = rac{2TP}{2TP + FP + FN}$$
+        </li>
+    </ul>
+
+    <h2>3. When to Prioritize Precision vs. Recall?</h2>
+    <table>
+        <tr>
+            <th>Metric</th>
+            <th>Primary Objective</th>
+            <th>Real-World Industrial Example</th>
+        </tr>
+        <tr>
+            <td><strong>High Precision</strong></td>
+            <td>Minimize False Positives (False alarms are costly or disruptive).</td>
+            <td>Spam filters (never send a critical client email to spam) or legal fraud accusations.</td>
+        </tr>
+        <tr>
+            <td><strong>High Recall</strong></td>
+            <td>Minimize False Negatives (Missed detections are dangerous or catastrophic).</td>
+            <td>Power transformer overheating alarms (never miss a fire risk, even if false alarms occur).</td>
+        </tr>
+        <tr>
+            <td><strong>High F1-Score</strong></td>
+            <td>Balance between Precision and Recall.</td>
+            <td>Customer sentiment classification where both false positive and false negative errors matter equally.</td>
+        </tr>
+    </table>
+
+    <h2>4. Actual Measured Results on 9,917 Holdout Reviews</h2>
+    <table>
+        <tr>
+            <th>Metric</th>
+            <th>Logistic Regression (Winning Model)</th>
+            <th>Multinomial Naive Bayes</th>
+        </tr>
+        <tr>
+            <td><strong>Accuracy</strong></td>
+            <td><strong>90.23% (8,947 / 9,917)</strong></td>
+            <td>86.95% (8,623 / 9,917)</td>
+        </tr>
+        <tr>
+            <td><strong>Precision</strong></td>
+            <td><strong>89.32%</strong></td>
+            <td>85.97%</td>
+        </tr>
+        <tr>
+            <td><strong>Recall</strong></td>
+            <td><strong>91.46%</strong></td>
+            <td>88.43%</td>
+        </tr>
+        <tr>
+            <td><strong>F1-Score</strong></td>
+            <td><strong>90.38%</strong></td>
+            <td>87.18%</td>
+        </tr>
+        <tr>
+            <td><strong>True Negatives (TN)</strong></td>
+            <td><strong>4,395</strong></td>
+            <td>4,220</td>
+        </tr>
+        <tr>
+            <td><strong>False Positives (FP)</strong></td>
+            <td><strong>545</strong></td>
+            <td>720</td>
+        </tr>
+        <tr>
+            <td><strong>False Negatives (FN)</strong></td>
+            <td><strong>425</strong></td>
+            <td>574</td>
+        </tr>
+        <tr>
+            <td><strong>True Positives (TP)</strong></td>
+            <td><strong>4,552</strong></td>
+            <td>4,403</td>
+        </tr>
+    </table>
+
+    <div class="checkpoint-box">
+        <h3>🎯 CHECK YOUR UNDERSTANDING &mdash; CHAPTERS 7, 8 & 9</h3>
+        <ol>
+            <li><strong>Q:</strong> What is the output range of the Sigmoid function and why is it useful?</li>
+            <li><strong>Q:</strong> Why can Accuracy be misleading if a dataset is heavily imbalanced?</li>
+            <li><strong>Q:</strong> If our model has 545 False Positives and 425 False Negatives, what does that indicate about model bias?</li>
+        </ol>
+        <div class="answers-toggle">
+            <strong>Answers:</strong>
+            <p>1. The Sigmoid function outputs values strictly between 0.0 and 1.0, allowing continuous linear scores to be interpreted as calibrated probabilities.<br>
+            2. If 99% of data is negative, a trivial model predicting "negative" for everything achieves 99% accuracy while failing 100% on the positive class.<br>
+            3. The near-equal error distribution demonstrates that our model is balanced and exhibits no systemic bias toward either class.</p>
+        </div>
+    </div>
+</div>
+
+
+<div class="page-break-before">
+    <h1>PART 10 &mdash; THE PROJECT DATASET: IMDB BENCHMARK</h1>
+
+    <h2>1. Dataset Specification & Integrity Checks</h2>
+    <table>
+        <tr>
+            <th>Property</th>
+            <th>Raw State</th>
+            <th>After Ingestion & Quality Control</th>
+            <th>Engineering Action Taken</th>
+        </tr>
+        <tr>
+            <td><strong>Dataset Name</strong></td>
+            <td>IMDB Large Movie Review Dataset</td>
+            <td>Cleaned Benchmark Corpus</td>
+            <td>Benchmark standard used in Stanford AI research.</td>
+        </tr>
+        <tr>
+            <td><strong>Total Record Count</strong></td>
+            <td>50,000 reviews</td>
+            <td><strong>49,582 reviews</strong></td>
+            <td><strong>418 exact duplicates removed</strong> via <code>drop_duplicates(subset=['review'])</code> to eliminate cross-split data leakage.</td>
+        </tr>
+        <tr>
+            <td><strong>Missing Values (NaN)</strong></td>
+            <td>0 missing values</td>
+            <td>0 missing values</td>
+            <td>Verified using <code>df.isnull().sum().sum() == 0</code>.</td>
+        </tr>
+        <tr>
+            <td><strong>Target Feature</strong></td>
+            <td><code>sentiment</code> ("positive", "negative")</td>
+            <td><code>sentiment_label</code> (1 = positive, 0 = negative)</td>
+            <td>Mapped to binary integers for Scikit-Learn classifiers.</td>
+        </tr>
+        <tr>
+            <td><strong>Class Balance</strong></td>
+            <td>25,000 Pos / 25,000 Neg</td>
+            <td><strong>24,884 Pos (50.19%) / 24,698 Neg (49.81%)</strong></td>
+            <td>Near-perfect 50:50 balance. No synthetic oversampling (SMOTE) or class re-weighting necessary.</td>
+        </tr>
+        <tr>
+            <td><strong>Average Review Length</strong></td>
+            <td>~230 words per review</td>
+            <td>Cleaned review length: ~225 words</td>
+            <td>Sufficient text volume to extract informative unigram and bigram features.</td>
+        </tr>
+    </table>
+</div>
+
+<div class="page-break-before">
+    <h1>PART 11 &mdash; END-TO-END PROJECT PIPELINE ARCHITECTURE</h1>
+
+    <h2>1. The Complete Architectural Flowchart</h2>
+    <pre><code>[Raw IMDB CSV Dataset: 50,000 Reviews]
+                  │
+                  ▼
+[1. Data Ingestion & Quality Checks] ──> (418 Duplicates Dropped -> 49,582 Clean Records)
+                  │
+                  ▼
+[2. Text Preprocessing Engine] ───────> (HTML Stripped, Contractions Expanded, Lowercased, Cleaned)
+                  │
+                  ▼
+[3. Stratified Partitioning (80/20)] ─> (X_train: 39,665 Samples | X_test: 9,917 Samples)
+                  │
+                  ▼
+[4. TF-IDF Feature Extraction] ───────> (fit_transform on X_train ONLY -> 10,000 N-gram Features)
+                  │
+                  ├──────────────────────────────┐
+                  ▼                              ▼
+    [Model A: Logistic Regression]    [Model B: Multinomial Naive Bayes]
+                  │                              │
+                  ▼                              ▼
+    Accuracy: 90.23% | F1: 90.38%     Accuracy: 86.95% | F1: 87.18%
+                  │
+                  ▼
+[5. Model Selection & Serialization] ──> (Saved to models/best_model.joblib & tfidf_vectorizer.joblib)
+                  │
+                  ▼
+[6. Real-Time Inference Engine] ───────> (src/predict.py: Preprocessing -> TF-IDF -> Probability & XAI)
+                  │
+                  ▼
+[7. Production Streamlit Web App] ─────> (Real-Time Inference, Batch Processing, XAI & Diagnostics)</code></pre>
+
+    <h2>2. Step-by-Step Data Transformation Matrix</h2>
+    <table>
+        <tr>
+            <th>Pipeline Step</th>
+            <th>What Enters</th>
+            <th>What Exits</th>
+            <th>Python Tool / Library</th>
+            <th>Implementation File</th>
+        </tr>
+        <tr>
+            <td><strong>Data Ingestion</strong></td>
+            <td>Raw CSV on disk</td>
+            <td>Cleaned Pandas DataFrame</td>
+            <td><code>pandas.read_csv()</code></td>
+            <td><code>src/data_preprocessing.py</code></td>
+        </tr>
+        <tr>
+            <td><strong>Text Cleaning</strong></td>
+            <td>Raw messy text with HTML</td>
+            <td>Normalized clean text string</td>
+            <td><code>re</code>, <code>html</code></td>
+            <td><code>src/data_preprocessing.py</code></td>
+        </tr>
+        <tr>
+            <td><strong>Dataset Splitting</strong></td>
+            <td>Full text Series $X$ and labels $y$</td>
+            <td>$X_{	ext{train}}, X_{	ext{test}}, y_{	ext{train}}, y_{	ext{test}}$</td>
+            <td><code>sklearn.model_selection.train_test_split</code></td>
+            <td><code>src/train_model.py</code></td>
+        </tr>
+        <tr>
+            <td><strong>Feature Extraction</strong></td>
+            <td>Text strings in $X_{	ext{train}}$</td>
+            <td>Sparse Matrix $(39665, 10000)$</td>
+            <td><code>sklearn.feature_extraction.text.TfidfVectorizer</code></td>
+            <td><code>src/train_model.py</code></td>
+        </tr>
+        <tr>
+            <td><strong>Model Training</strong></td>
+            <td>Sparse Matrix & target labels</td>
+            <td>Trained estimator coefficients</td>
+            <td><code>sklearn.linear_model.LogisticRegression</code></td>
+            <td><code>src/train_model.py</code></td>
+        </tr>
+        <tr>
+            <td><strong>Serialization</strong></td>
+            <td>In-memory model objects</td>
+            <td><code>.joblib</code> byte files on disk</td>
+            <td><code>joblib.dump()</code></td>
+            <td><code>src/train_model.py</code></td>
+        </tr>
+        <tr>
+            <td><strong>Inference & XAI</strong></td>
+            <td>New raw review from user</td>
+            <td>Sentiment + Probability + Token impacts</td>
+            <td><code>src.predict.SentimentPredictor</code></td>
+            <td><code>src/predict.py</code></td>
+        </tr>
+        <tr>
+            <td><strong>User Interface</strong></td>
+            <td>User browser interactions</td>
+            <td>Interactive web analytics dashboard</td>
+            <td><code>streamlit</code></td>
+            <td><code>app.py</code></td>
+        </tr>
+    </table>
+</div>
+
+<div class="page-break-before">
+    <h1>PART 12 &mdash; ACTUAL SOURCE CODE LINE-BY-LINE BREAKDOWN</h1>
+
+    <h2>File 1: <code>src/data_preprocessing.py</code></h2>
+    <pre><code># SECTION A: Contraction Expansion Regex
+CONTRACTIONS_REGEX = re.compile(
+    r'(' + r'|'.join(re.escape(k) for k in CONTRACTION_MAP.keys()) + r')',
+    flags=re.IGNORECASE
+)
+
+def expand_contractions(text: str) -> str:
+    def replace(match):
+        matched_text = match.group(0).lower()
+        return CONTRACTION_MAP.get(matched_text, matched_text)
+    return CONTRACTIONS_REGEX.sub(replace, text)</code></pre>
+    <ul>
+        <li><code>re.compile(...)</code>: Pre-compiles the regular expression pattern containing all 50+ contractions (like "didn't", "can't") for high execution speed.</li>
+        <li><code>...</code>: Matches only complete word boundaries (prevents partial matches inside words).</li>
+        <li><code>re.IGNORECASE</code>: Matches contractions regardless of capitalization (e.g., "Didn't" and "didn't").</li>
+        <li><code>CONTRACTIONS_REGEX.sub(replace, text)</code>: Searches the text string and replaces each match with its expanded equivalent from <code>CONTRACTION_MAP</code>.</li>
+    </ul>
+
+    <pre><code># SECTION B: Core clean_text Pipeline
+def clean_text(text: str) -> str:
+    if not isinstance(text, str):
+        return ''
+    text = html.unescape(text)                   # Line 1: Converts &amp; -> &, &quot; -> "
+    text = HTML_TAG_REGEX.sub(' ', text)        # Line 2: Removes &lt;br /&gt;, &lt;p&gt; tags
+    text = URL_REGEX.sub(' ', text)             # Line 3: Strips web links (http, www)
+    text = expand_contractions(text)            # Line 4: Expands "didn't" -> "did not"
+    text = text.lower()                         # Line 5: Normalizes casing
+    text = NON_ALPHANUM_REGEX.sub(' ', text)    # Line 6: Removes non-alphanumeric chars
+    text = WHITESPACE_REGEX.sub(' ', text).strip() # Line 7: Collapses multi-spaces
+    return text</code></pre>
+
+    <h2>File 2: <code>src/train_model.py</code></h2>
+    <pre><code># SECTION A: Fitting TF-IDF Vectorizer
+vectorizer = TfidfVectorizer(
+    ngram_range=(1, 2),
+    max_features=10000,
+    min_df=3,
+    sublinear_tf=True
+)
+X_train_tfidf = vectorizer.fit_transform(X_train)
+X_test_tfidf = vectorizer.transform(X_test)</code></pre>
+    <ul>
+        <li><code>fit_transform(X_train)</code>: Scans <code>X_train</code>, builds the 10,000-word vocabulary dictionary, calculates IDF weights for each term, and projects <code>X_train</code> into a sparse matrix.</li>
+        <li><code>transform(X_test)</code>: Uses the <strong>pre-existing training vocabulary and IDF weights</strong> to project <code>X_test</code>. It does NOT update vocabulary or IDF weights (prevents data leakage).</li>
+    </ul>
+
+    <pre><code># SECTION B: Logistic Regression Model Fitting
+lr_model = LogisticRegression(C=1.0, max_iter=1000, random_state=42)
+lr_model.fit(X_train_tfidf, y_train)
+lr_preds = lr_model.predict(X_test_tfidf)</code></pre>
+    <ul>
+        <li><code>LogisticRegression(C=1.0, ...)</code>: Instantiates the classifier with L2 regularization strength $C=1.0$ and L-BFGS solver.</li>
+        <li><code>max_iter=1000</code>: Allows up to 1,000 gradient descent iterations to guarantee mathematical convergence.</li>
+        <li><code>fit(X_train_tfidf, y_train)</code>: Optimizes the 10,000 feature coefficients and 1 bias intercept by minimizing binary cross-entropy loss.</li>
+        <li><code>predict(X_test_tfidf)</code>: Evaluates all 9,917 holdout test reviews by computing $z = \mathbf{w}^T \mathbf{x} + b$ and applying threshold $z \ge 0$.</li>
+    </ul>
+
+    <h2>File 3: <code>src/predict.py</code></h2>
+    <pre><code># SECTION A: Probability & Local Token Contributions
+probs = self.model.predict_proba(tfidf_vec)[0]
+pos_prob = float(probs[1])
+neg_prob = float(probs[0])
+sentiment = 'Positive' if pred_label == 1 else 'Negative'
+confidence = pos_prob if pred_label == 1 else neg_prob
+
+# Local XAI computation:
+indices = tfidf_vec.nonzero()[1]
+for idx in indices:
+    word = self.feature_names[idx]
+    tfidf_val = float(tfidf_vec[0, idx])
+    weight = float(self.coefficients[idx])
+    impact = tfidf_val * weight</code></pre>
+    <ul>
+        <li><code>self.model.predict_proba(...)</code>: Returns the calibrated class probabilities $[P(	ext{Negative}), P(	ext{Positive})]$.</li>
+        <li><code>tfidf_vec.nonzero()[1]</code>: Extracts only the active column indices in the sparse vector for the input review.</li>
+        <li><code>impact = tfidf_val * weight</code>: Computes the exact mathematical contribution of that specific word to the total log-odds decision score. If positive, it pushed toward Positive; if negative, toward Negative.</li>
+    </ul>
+</div>
+
+<div class="page-break-before">
+    <h1>PART 13 &mdash; CODE-TO-THEORY MAPPING REFERENCE MATRIX</h1>
+
+    <table>
+        <tr>
+            <th>Actual Project Code Snippet</th>
+            <th>Underlying Machine Learning / NLP Concept</th>
+            <th>Why This Code Exists</th>
+            <th>How to Explain in an Interview</th>
+        </tr>
+        <tr>
+            <td><code>drop_duplicates(subset=['review'])</code></td>
+            <td>Data Cleaning & Deduplication</td>
+            <td>Removes 418 identical reviews from raw dataset.</td>
+            <td>"Deduplication prevents identical reviews from appearing in both train and test splits, eliminating synthetic data leakage."</td>
+        </tr>
+        <tr>
+            <td><code>train_test_split(..., stratify=y)</code></td>
+            <td>Stratified Sampling</td>
+            <td>Preserves 50.2% : 49.8% class balance across train and test partitions.</td>
+            <td>"Stratification prevents class imbalance skew between training and evaluation splits."</td>
+        </tr>
+        <tr>
+            <td><code>ngram_range=(1, 2)</code></td>
+            <td>N-gram Feature Extraction</td>
+            <td>Extracts single words and 2-word pairs (e.g. "not good").</td>
+            <td>"Bigrams capture immediate local negation without needing deep recurrent neural networks."</td>
+        </tr>
+        <tr>
+            <td><code>sublinear_tf=True</code></td>
+            <td>Logarithmic Term Frequency Scaling</td>
+            <td>Replaces raw count with $1 + \log(	ext{tf})$.</td>
+            <td>"Dampens the influence of repeated words so a word appearing 15 times doesn't dominate 15x over a single occurrence."</td>
+        </tr>
+        <tr>
+            <td><code>fit_transform(X_train)</code></td>
+            <td>Feature Matrix Parameter Fitting</td>
+            <td>Learns vocabulary and IDF weights exclusively on training data.</td>
+            <td>"Strictly isolates the test set to guarantee zero data leakage."</td>
+        </tr>
+        <tr>
+            <td><code>LogisticRegression(C=1.0)</code></td>
+            <td>L2-Regularized Linear Classification</td>
+            <td>Learns linear decision boundary with Ridge penalty.</td>
+            <td>"Provides fast convex optimization with guaranteed convergence and transparent word coefficients."</td>
+        </tr>
+        <tr>
+            <td><code>MultinomialNB(alpha=1.0)</code></td>
+            <td>Bayesian Probabilistic Classification</td>
+            <td>Provides baseline benchmark comparison.</td>
+            <td>"Uses Laplace smoothing ($lpha=1.0$) to prevent zero probability on unseen words."</td>
+        </tr>
+        <tr>
+            <td><code>joblib.dump(model, '...')</code></td>
+            <td>Model Serialization</td>
+            <td>Saves trained model weights to disk in binary format.</td>
+            <td>"Allows sub-5ms real-time inference in production without needing to retrain on startup."</td>
+        </tr>
+        <tr>
+            <td><code>@st.cache_resource</code></td>
+            <td>Application Resource Caching</td>
+            <td>Caches loaded model in server memory across sessions.</td>
+            <td>"Prevents redundant disk I/O reads on every user interaction in Streamlit."</td>
+        </tr>
+    </table>
+</div>
+
+<div class="page-break-before">
+    <h1>PART 14 &mdash; STREAMLIT WEB ARCHITECTURE & USER FLOW</h1>
+
+    <h2>1. What is Streamlit and Why Did We Choose It?</h2>
+    <p>Streamlit is an open-source Python framework designed for rapidly creating interactive data and machine learning web applications directly from pure Python code. We chose Streamlit because it allows an ML engineer to deploy a complete, functional UI with buttons, sliders, progress bars, and dataframes without writing separate frontend JavaScript/HTML/CSS code.</p>
+
+    <h2>2. Complete End-to-End User Flow</h2>
+    <pre><code>User Enters Review Text in Browser Text Box
+                    │
+                    ▼
+User Clicks "⚡ Run Sentiment Analysis"
+                    │
+                    ▼
+Streamlit invokes cached `load_predictor()` (@st.cache_resource)
+                    │
+                    ▼
+Text passes to `clean_text()` (HTML stripped, contractions expanded, lowercased)
+                    │
+                    ▼
+Clean text transformed by `vectorizer.transform()` -> Sparse Vector (1, 10000)
+                    │
+                    ▼
+Model runs `predict()` & `predict_proba()` -> Positive % & Negative %
+                    │
+                    ▼
+Local explainability loop extracts top positive and negative token impacts
+                    │
+                    ▼
+Streamlit renders: Sentiment Badge + Confidence Gauge + Token Badges + JSON Payload</code></pre>
+
+    <h2>3. The Significance of <code>@st.cache_resource</code></h2>
+    <p>Streamlit operates on a <em>reactive execution model</em>: every time a user types a character or clicks a button, Streamlit re-runs the Python script from top to bottom. Without <code>@st.cache_resource</code>, loading <code>best_model.joblib</code> from disk would happen on every click, creating high latency and memory leaks. The decorator loads the model into memory <strong>once</strong> and shares the object across all sessions.</p>
+</div>
+
+<div class="page-break-before">
+    <h1>PART 15 &mdash; MODEL SERIALIZATION & JOBLIB</h1>
+
+    <h2>1. Why Model Serialization is Essential</h2>
+    <p>Training an NLP model on 50,000 documents requires parsing text, computing vocabulary frequencies across 40,000 reviews, and running iterative mathematical optimization. This takes ~30 seconds. In production, an API or web service cannot pause for 30 seconds every time a customer submits a review. <strong>Serialization</strong> freezes the trained mathematical state (learned weights $w_j$ and vocabulary mappings) and saves them as a binary byte stream on disk.</p>
+
+    <h2>2. Why <code>joblib</code> Over Standard <code>pickle</code>?</h2>
+    <p>Python's built-in <code>pickle</code> module serializes generic Python objects. However, <code>joblib</code> is specifically engineered for scientific computing. It handles large NumPy arrays and Scikit-Learn sparse matrices with continuous memory mapping and compression, executing load and save operations significantly faster with lower memory consumption.</p>
+
+    <h2>3. Why the Vectorizer MUST be Serialized Alongside the Model</h2>
+    <blockquote><strong>Critical Interview Trap:</strong> If an interviewer asks: <em>"Can I just save my trained Logistic Regression model and use a new TfidfVectorizer during deployment?"</em><br>
+    <strong>Answer:</strong> <em>"Absolutely NOT! The Logistic Regression model learned that weight $w_{412}$ belongs to 'masterpiece' and weight $w_{8901}$ belongs to 'not good'. A new vectorizer would assign completely different index numbers to words based on new inputs. The exact same fitted vectorizer dictionary must be saved and loaded alongside the model to guarantee identical feature indices!"</em></blockquote>
+</div>
+
+
+<div class="page-break-before">
+    <h1>PART 16 &mdash; END-TO-END MANUAL IMPLEMENTATION FROM SCRATCH (15 STEPS)</h1>
+    <p><em>Follow this exact chronological roadmap if you ever need to rebuild this project from absolute zero during an interview live-coding assessment or local setup:</em></p>
+
+    <h2>Step 1: Environment & Directory Setup</h2>
+    <pre><code># Create clean directory structure:
+mkdir -p movie-sentiment-analysis/{data/raw,data/processed,models,reports/figures,src,notebooks}
+cd movie-sentiment-analysis</code></pre>
+
+    <h2>Step 2: Create Dependencies (requirements.txt)</h2>
+    <pre><code>pandas>=2.0.0
+numpy>=1.24.0
+scikit-learn>=1.3.0
+matplotlib>=3.7.0
+seaborn>=0.12.0
+joblib>=1.3.0
+streamlit>=1.28.0</code></pre>
+
+    <h2>Step 3: Download Benchmark Dataset</h2>
+    <pre><code>import urllib.request
+url = "https://raw.githubusercontent.com/Ankit152/IMDB-sentiment-analysis/master/IMDB-Dataset.csv"
+urllib.request.urlretrieve(url, "data/raw/imdb_reviews.csv")</code></pre>
+
+    <h2>Step 4: Inspect Raw Data Quality</h2>
+    <pre><code>import pandas as pd
+df = pd.read_csv("data/raw/imdb_reviews.csv")
+print("Shape:", df.shape)
+print("Missing:", df.isnull().sum())
+print("Duplicates:", df.duplicated(subset=['review']).sum())</code></pre>
+    <p><strong>Expected Output:</strong> Shape: (50000, 2), Missing: 0, Duplicates: 418.</p>
+
+    <h2>Step 5: Implement Text Cleaning (src/data_preprocessing.py)</h2>
+    <pre><code>import re, html
+
+def clean_text(text: str) -> str:
+    if not isinstance(text, str): return ""
+    text = html.unescape(text)
+    text = re.sub(r'<.*?>', ' ', text)
+    text = re.sub(r'https?://\S+|www\.\S+', ' ', text)
+    # Contraction expansion preserves "not"
+    text = re.sub(r"don't", "do not", text, flags=re.IGNORECASE)
+    text = re.sub(r"wasn't", "was not", text, flags=re.IGNORECASE)
+    text = text.lower()
+    text = re.sub(r'[^a-zA-Z0-9\s]', ' ', text)
+    return re.sub(r'\s+', ' ', text).strip()</code></pre>
+
+    <h2>Step 6: Deduplicate and Save Processed Data</h2>
+    <pre><code>df = df.drop_duplicates(subset=['review']).reset_index(drop=True)
+df['cleaned_review'] = df['review'].apply(clean_text)
+df['sentiment_label'] = df['sentiment'].map({'positive': 1, 'negative': 0})
+df.to_csv("data/processed/cleaned_reviews.csv", index=False)</code></pre>
+
+    <h2>Step 7: Perform Stratified Train/Test Split</h2>
+    <pre><code>from sklearn.model_selection import train_test_split
+X_train, X_test, y_train, y_test = train_test_split(
+    df['cleaned_review'], df['sentiment_label'],
+    test_size=0.20, random_state=42, stratify=df['sentiment_label']
+)</code></pre>
+
+    <h2>Step 8: Fit TF-IDF Feature Extraction Matrix</h2>
+    <pre><code>from sklearn.feature_extraction.text import TfidfVectorizer
+vectorizer = TfidfVectorizer(ngram_range=(1, 2), max_features=10000, min_df=3, sublinear_tf=True)
+X_train_tfidf = vectorizer.fit_transform(X_train)
+X_test_tfidf = vectorizer.transform(X_test)</code></pre>
+
+    <h2>Step 9: Train Classifiers (Logistic Regression & Naive Bayes)</h2>
+    <pre><code>from sklearn.linear_model import LogisticRegression
+from sklearn.naive_bayes import MultinomialNB
+
+lr_model = LogisticRegression(C=1.0, max_iter=1000, random_state=42)
+lr_model.fit(X_train_tfidf, y_train)
+
+nb_model = MultinomialNB(alpha=1.0)
+nb_model.fit(X_train_tfidf, y_train)</code></pre>
+
+    <h2>Step 10: Evaluate Models on Holdout Test Set</h2>
+    <pre><code>from sklearn.metrics import accuracy_score, classification_report
+lr_preds = lr_model.predict(X_test_tfidf)
+print("Logistic Regression Accuracy:", accuracy_score(y_test, lr_preds))
+print(classification_report(y_test, lr_preds))</code></pre>
+
+    <h2>Step 11: Serialize Best Model and Vectorizer to Disk</h2>
+    <pre><code>import joblib
+joblib.dump(lr_model, "models/best_model.joblib")
+joblib.dump(vectorizer, "models/tfidf_vectorizer.joblib")</code></pre>
+
+    <h2>Step 12: Build Predictor Inference Class (src/predict.py)</h2>
+    <pre><code>class SentimentPredictor:
+    def __init__(self, models_dir='models'):
+        self.model = joblib.load(f"{models_dir}/best_model.joblib")
+        self.vectorizer = joblib.load(f"{models_dir}/tfidf_vectorizer.joblib")
+    def predict(self, text):
+        clean = clean_text(text)
+        vec = self.vectorizer.transform([clean])
+        prob = self.model.predict_proba(vec)[0]
+        label = self.model.predict(vec)[0]
+        return {'sentiment': 'Positive' if label == 1 else 'Negative', 'confidence': float(prob[label])}</code></pre>
+
+    <h2>Step 13: Build Streamlit Web Interface (app.py)</h2>
+    <pre><code>import streamlit as st
+from src.predict import SentimentPredictor
+
+st.title("Sentiment Intelligence Platform")
+text = st.text_area("Enter review:")
+if st.button("Analyze"):
+    pred = SentimentPredictor().predict(text)
+    st.write("Sentiment:", pred['sentiment'])
+    st.write("Confidence:", f"{pred['confidence']*100:.2f}%")</code></pre>
+
+    <h2>Step 14: Execute and Test Locally</h2>
+    <pre><code>streamlit run app.py --server.port 8502</code></pre>
+
+    <h2>Step 15: Push to GitHub and Deploy</h2>
+    <pre><code>git init -b main
+git add .
+git commit -m "Deploy production sentiment system"
+git remote add origin https://github.com/&lt;user&gt;/&lt;repo&gt;.git
+git push -u origin main</code></pre>
+</div>
+
+<div class="page-break-before">
+    <h1>PART 17 &mdash; DEBUGGING & TROUBLESHOOTING GUIDE</h1>
+
+    <table>
+        <tr>
+            <th>Common Error</th>
+            <th>Root Cause</th>
+            <th>Diagnostic Test</th>
+            <th>Permanent Fix</th>
+        </tr>
+        <tr>
+            <td><code>FileNotFoundError: models/best_model.joblib</code></td>
+            <td>Inference script executed before training was run.</td>
+            <td>Check <code>os.path.exists('models/best_model.joblib')</code>.</td>
+            <td>Run <code>python src/train_model.py</code> to train and serialize weights.</td>
+        </tr>
+        <tr>
+            <td><code>ValueError: dimension mismatch</code></td>
+            <td>Vectorizer was re-fitted with a different <code>max_features</code> or different corpus.</td>
+            <td>Inspect <code>tfidf_vec.shape[1]</code> vs <code>model.coef_.shape[1]</code>.</td>
+            <td>Ensure the exact same saved <code>tfidf_vectorizer.joblib</code> is loaded alongside the model.</td>
+        </tr>
+        <tr>
+            <td><code>SyntaxError: Port 8501 is not available</code></td>
+            <td>Another process or terminal session is already running Streamlit on default port 8501.</td>
+            <td>Run <code>netstat -ano | findstr :8501</code>.</td>
+            <td>Launch on an alternate port: <code>streamlit run app.py --server.port 8502</code>.</td>
+        </tr>
+        <tr>
+            <td><code>UnicodeDecodeError: 'utf-8' codec can't decode...</code></td>
+            <td>Text file contains Windows-1252 or non-UTF8 byte sequences.</td>
+            <td>Check file encoding using <code>chardet</code>.</td>
+            <td>Always specify <code>encoding='utf-8'</code> when calling <code>open()</code> or <code>read_csv()</code>.</td>
+        </tr>
+        <tr>
+            <td><code>Empty / Whitespace Input crashes predict()</code></td>
+            <td>User clicked analyze on an empty string, yielding zero tokens.</td>
+            <td>Check <code>if not review_text.strip():</code></td>
+            <td>Add defensive validation returning neutral/undetermined response without invoking model.</td>
+        </tr>
+        <tr>
+            <td><code>MemoryError during fit_transform()</code></td>
+            <td><code>ngram_range=(1, 3)</code> without <code>max_features</code> generated 1,000,000+ features.</td>
+            <td>Monitor RAM consumption during vectorization.</td>
+            <td>Always set <code>max_features=10000</code> and <code>min_df=3</code> to cap dimensional growth.</td>
+        </tr>
+    </table>
+</div>
+
+<div class="page-break-before">
+    <h1>PART 18 &mdash; REAL-WORLD LIMITATIONS & FUTURE ROADMAP</h1>
+
+    <h2>1. The Four Inherent Limitations of Classical N-gram Models</h2>
+    <ol>
+        <li><strong>Sarcasm & Verbal Irony:</strong>
+            <p>Consider the review: <em>"What a glorious, stunning waste of my precious two hours."</em></p>
+            <p>Our model identifies positive unigrams <code>"glorious"</code> (+1.8) and <code>"stunning"</code> (+1.6), and negative unigram <code>"waste"</code> (-2.1). Because positive words outweigh the negative term numerically, the review is misclassified as Positive. Classical models cannot comprehend tonal irony.</p>
+        </li>
+        <li><strong>Long-Distance Negation:</strong>
+            <p>Consider: <em>"I did not, even after giving the director multiple opportunities across three agonizing hours, find anything to appreciate."</em></p>
+            <p>Because the word <code>"not"</code> is separated from <code>"find"</code> or <code>"appreciate"</code> by 12 intervening words, our bigram window ($N=2$) fails to bind the negation to the sentiment verb.</p>
+        </li>
+        <li><strong>Out-of-Vocabulary (OOV) Slang:</strong>
+            <p>If a teenager reviews a film using new internet slang: <em>"This movie is totally skibidi and mid,"</em> the words do not exist in the 10,000-word IMDB vocabulary and receive a score of 0.</p>
+        </li>
+        <li><strong>Domain Specificity:</strong>
+            <p>A model trained on IMDB movie reviews understands words like "cinematography" and "screenplay". If applied directly to Tata Power electrical distribution complaints ("feeder line tripped", "transformer overheating"), it will struggle because technical electrical vocabulary was not present in movie reviews.</p>
+        </li>
+    </ol>
+
+    <h2>2. Future Engineering Improvements (Next-Gen Roadmap)</h2>
+    <ul>
+        <li><strong>Word Embeddings (Word2Vec / FastText):</strong> Represents words as dense 300-dimensional vectors where semantic similarity is geometric ($v_{	ext{king}} - v_{	ext{man}} + v_{	ext{woman}} pprox v_{	ext{queen}}$). FastText uses character n-grams to handle OOV words and typos.</li>
+        <li><strong>Bidirectional LSTMs / GRUs:</strong> Recurrent neural architectures that process words sequentially with internal memory gates, resolving long-distance dependencies.</li>
+        <li><strong>Transformer Models (DistilBERT / RoBERTa):</strong> Self-Attention mechanisms where every word attends to every other word simultaneously, fully solving long-distance negation and capturing nuanced contextual semantics at the cost of higher compute latency.</li>
+    </ul>
+</div>
+
+
+<div class="page-break-before">
+    <h1>PART 19 &mdash; 100+ CATEGORIZED INTERVIEW QUESTIONS & ANSWERS</h1>
+    <p><em>Every question in this compendium includes: the punchy Short Answer, the in-depth Technical Answer, the Interviewer's Underlying Motivation, and the Critical Mistake to Avoid.</em></p>
+
+    <!-- SECTION A: PYTHON -->
+    <h2>Section A: Python Core Essentials</h2>
+    
+    <h3>Q1. What is the difference between mutable and immutable objects in Python?</h3>
+    <ul>
+        <li><strong>Short Answer:</strong> Mutable objects (lists, dicts, sets) can be altered in-place after creation without changing their memory address. Immutable objects (ints, floats, strings, tuples) cannot be altered; any modification allocates a new object in memory.</li>
+        <li><strong>Detailed Answer:</strong> In Python, variable names are references pointing to memory addresses (checked via <code>id(x)</code>). When modifying a list (<code>list.append(x)</code>), the underlying array is updated in-place. When modifying a string (<code>s += 'a'</code>), Python allocates a new string object in memory. In ML pipelines, immutability protects hyperparameters and configurations from unintended side-effects.</li>
+        <li><strong>Why They Ask:</strong> Tests core Python memory mechanics and prevention of reference-mutation bugs.</li>
+        <li><strong>Common Mistake:</strong> Saying tuples are "just lists with parentheses" without explaining memory allocation or hashability.</li>
+    </ul>
+
+    <h3>Q2. How do list comprehensions differ from standard <code>for</code> loops in terms of execution?</h3>
+    <ul>
+        <li><strong>Short Answer:</strong> List comprehensions are more concise, readable, and execute faster because the looping and appending bytecode is evaluated in optimized C within Python's interpreter.</li>
+        <li><strong>Detailed Answer:</strong> In a standard <code>for</code> loop with <code>.append()</code>, Python performs an attribute lookup for the <code>append</code> method and dynamic function call on every iteration. List comprehensions use the specialized <code>LIST_APPEND</code> bytecode instruction, avoiding repeated method resolution overhead.</li>
+        <li><strong>Why They Ask:</strong> Tests code optimization skills and Python internals.</li>
+        <li><strong>Common Mistake:</strong> Using overly complex nested list comprehensions that destroy code readability.</li>
+    </ul>
+
+    <h3>Q3. What is a lambda function in Python and where would you use it?</h3>
+    <ul>
+        <li><strong>Short Answer:</strong> An anonymous, inline function defined with the <code>lambda</code> keyword that takes any number of arguments but contains only a single expression.</li>
+        <li><strong>Detailed Answer:</strong> Syntax: <code>lambda args: expression</code>. In our project, it is used inside Pandas <code>apply()</code> for simple transformations: <code>df['word_count'] = df['cleaned_review'].apply(lambda x: len(x.split()))</code>.</li>
+        <li><strong>Why They Ask:</strong> Checks functional programming fluency in data manipulation.</li>
+        <li><strong>Common Mistake:</strong> Writing multi-line logic inside a lambda; complex logic should always be a standard <code>def</code> function.</li>
+    </ul>
+
+    <h3>Q4. What is the difference between <code>==</code> and <code>is</code> in Python?</h3>
+    <ul>
+        <li><strong>Short Answer:</strong> <code>==</code> checks for equality of value (do both objects contain the same data?), whereas <code>is</code> checks for identity of memory address (are both variables pointing to the exact same object in RAM?).</li>
+        <li><strong>Detailed Answer:</strong> <code>a = [1, 2]</code> and <code>b = [1, 2]</code> $\implies a == b$ is <code>True</code>, but $a 	ext{ is } b$ is <code>False</code> because they reside at different memory addresses (<code>id(a) != id(b)</code>). <code>is</code> should strictly be used for singleton comparisons like <code>x is None</code>.</li>
+        <li><strong>Why They Ask:</strong> Basic language precision test.</li>
+        <li><strong>Common Mistake:</strong> Using <code>if x is 1:</code> instead of <code>if x == 1:</code>.</li>
+    </ul>
+
+    <h3>Q5. What is the Global Interpreter Lock (GIL) and how does it affect Python ML workflows?</h3>
+    <ul>
+        <li><strong>Short Answer:</strong> A mutex that allows only one native thread to execute Python bytecode at a time, preventing true CPU multi-threading in pure Python.</li>
+        <li><strong>Detailed Answer:</strong> The GIL prevents race conditions in CPython's reference counting memory management. However, in machine learning, numerical libraries like NumPy, Scikit-Learn, and SciPy release the GIL during heavy vector calculations, executing multi-threaded BLAS/OpenMP routines in compiled C/Fortran.</li>
+        <li><strong>Why They Ask:</strong> High-level systems and concurrency understanding.</li>
+        <li><strong>Common Mistake:</strong> Claiming that Python ML cannot use multiple CPU cores (it does, via external C-libraries and multiprocessing).</li>
+    </ul>
+
+    <!-- SECTION B: NUMPY & PANDAS -->
+    <h2>Section B: NumPy & Pandas Foundations</h2>
+
+    <h3>Q6. Why is NumPy significantly faster than Python native lists for numerical operations?</h3>
+    <ul>
+        <li><strong>Short Answer:</strong> NumPy arrays store contiguous blocks of homogeneous memory, avoid Python object overhead, and leverage SIMD CPU hardware vectorization.</li>
+        <li><strong>Detailed Answer:</strong> Python lists store pointers to scattered objects with type-tagging and reference counts. NumPy arrays are contiguous blocks of typed memory (e.g. 64-bit floats), maximizing CPU cache locality and allowing vectorized C-loops and SIMD registers to process multiple numbers in a single CPU cycle.</li>
+        <li><strong>Why They Ask:</strong> Foundational knowledge of why data science stacks are built on NumPy.</li>
+        <li><strong>Common Mistake:</strong> Saying "it's written in C" without explaining contiguous memory or cache locality.</li>
+    </ul>
+
+    <h3>Q7. How does Pandas represent missing values, and how does <code>isnull().sum()</code> work?</h3>
+    <ul>
+        <li><strong>Short Answer:</strong> Missing values are represented as floating-point <code>np.nan</code>. <code>isnull()</code> returns a boolean mask (True for NaN, False otherwise), and <code>sum()</code> adds up the True values (treating True as 1).</li>
+        <li><strong>Detailed Answer:</strong> Because <code>NaN != NaN</code> by IEEE floating-point standard, direct comparison <code>x == np.nan</code> fails. Pandas provides <code>isnull()</code> to detect bitwise NaN representations across rows. Summing the resulting boolean series gives the exact count of missing records per column.</li>
+        <li><strong>Why They Ask:</strong> Data hygiene and quality inspection fundamentals.</li>
+        <li><strong>Common Mistake:</strong> Trying to check <code>if row == np.nan:</code>.</li>
+    </ul>
+
+    <h3>Q8. What is the difference between <code>df.drop_duplicates()</code> and filtering manually?</h3>
+    <ul>
+        <li><strong>Short Answer:</strong> <code>drop_duplicates()</code> uses an optimized internal hash-set algorithm in C to identify and purge identical rows across specified column subsets in a single vectorized pass.</li>
+        <li><strong>Detailed Answer:</strong> In our project, <code>df.drop_duplicates(subset=['review'])</code> hashed review texts and dropped 418 duplicates. Manual looping would take $O(N^2)$ time; Pandas executes it in $O(N)$ amortized time.</li>
+        <li><strong>Why They Ask:</strong> Big-O algorithmic efficiency awareness.</li>
+        <li><strong>Common Mistake:</strong> Forgetting to pass <code>subset=['review']</code> and checking all columns instead.</li>
+    </ul>
+
+    <!-- SECTION C: NLP FUNDAMENTALS -->
+    <h2>Section C: Natural Language Processing (NLP)</h2>
+
+    <h3>Q9. What is the fundamental difference between Stemming and Lemmatization?</h3>
+    <ul>
+        <li><strong>Short Answer:</strong> Stemming chops off word suffixes using crude heuristic rules (often creating non-words like <code>'univers'</code>). Lemmatization uses morphological analysis and dictionary lookups to find the true root word (<code>'better'</code> $ightarrow$ <code>'good'</code>).</li>
+        <li><strong>Detailed Answer:</strong> Porter or Snowball stemmers apply algorithmic suffix-stripping without linguistic understanding. Lemmatization (WordNet, spaCy) incorporates Part-of-Speech (POS) tags to distinguish whether a word is a noun, verb, or adjective before converting it to its lemma. Lemmatization is cleaner but computationally slower.</li>
+        <li><strong>Why They Ask:</strong> Core NLP text normalization theory.</li>
+        <li><strong>Common Mistake:</strong> Claiming your project used Lemmatization when you actually used regex-based normalization.</li>
+    </ul>
+
+    <h3>Q10. Why is blind stopword removal dangerous in sentiment analysis?</h3>
+    <ul>
+        <li><strong>Short Answer:</strong> Standard stopword lists include negation words like <code>'not'</code>, <code>'no'</code>, and <code>'never'</code>. Deleting them inverts sentiment polarity (turning <code>'not good'</code> into <code>'good'</code>).</li>
+        <li><strong>Detailed Answer:</strong> Standard stopword corpora (such as NLTK's English stopword list) were developed for topic modeling and document retrieval, where negation is irrelevant. In sentiment analysis, polarity is dictated by modifiers. We preserve negations through contraction expansion (<code>"didn't"</code> $ightarrow$ <code>"did not"</code>) and bigram feature binding.</li>
+        <li><strong>Why They Ask:</strong> Distinguishes practitioners from textbook memorizers.</li>
+        <li><strong>Common Mistake:</strong> Saying "I always remove all stopwords in every NLP project".</li>
+    </ul>
+
+    <!-- SECTION D: TF-IDF -->
+    <h2>Section D: TF-IDF & Feature Extraction</h2>
+
+    <h3>Q11. Derive and explain the TF-IDF formula used in Scikit-Learn.</h3>
+    <ul>
+        <li><strong>Short Answer:</strong> $	ext{TF-IDF} = 	ext{TF} 	imes 	ext{IDF}$. TF measures term frequency in a document; IDF measures the rarity of the term across all documents ($\log(rac{1+N}{1+DF}) + 1$).</li>
+        <li><strong>Detailed Answer:</strong> Scikit-Learn uses the Smooth IDF formulation: $	ext{IDF}(t) = \log\left(rac{1 + N}{1 + 	ext{DF}(t)}ight) + 1$, followed by L2 Euclidean normalization on each row vector $\mathbf{v}_{	ext{norm}} = rac{\mathbf{v}}{\|\mathbf{v}\|_2}$. This ensures document length does not bias cosine distances between vectors.</li>
+        <li><strong>Why They Ask:</strong> Mathematical precision and Scikit-Learn framework depth.</li>
+        <li><strong>Common Mistake:</strong> Stating the raw textbook formula $\log(N/DF)$ without the $+1$ smoothing constants.</li>
+    </ul>
+
+    <h3>Q12. What does <code>sublinear_tf=True</code> do and why did you use it?</h3>
+    <ul>
+        <li><strong>Short Answer:</strong> It replaces raw term frequency $	ext{TF}$ with $1 + \log(	ext{TF})$. It prevents a word appearing 20 times from having 20 times more influence than a word appearing once.</li>
+        <li><strong>Detailed Answer:</strong> Human perception of frequency is logarithmic (Weber-Fechner Law). In movie reviews, an author repeating the word "boring" 10 times is not 10 times more dissatisfied than an author writing it twice. Log scaling dampens repetition bias.</li>
+        <li><strong>Why They Ask:</strong> Tests advanced hyperparameter tuning knowledge.</li>
+        <li><strong>Common Mistake:</strong> Confusing sublinear TF with sublinear IDF.</li>
+    </ul>
+
+    <!-- SECTION E: MACHINE LEARNING & LOGISTIC REGRESSION -->
+    <h2>Section E: Machine Learning Classifiers</h2>
+
+    <h3>Q13. Why is Logistic Regression considered a linear model if the Sigmoid curve is non-linear?</h3>
+    <ul>
+        <li><strong>Short Answer:</strong> Because the <strong>decision boundary</strong> in the feature space is a linear hyperplane ($z = \mathbf{w}^T \mathbf{x} + b = 0$).</li>
+        <li><strong>Detailed Answer:</strong> The log-odds (logit) function is a strictly linear combination of input features: $\log\left(rac{P}{1 - P}ight) = \mathbf{w}^T \mathbf{x} + b$. The non-linear Sigmoid function $\sigma(z)$ only acts as a monotonic squashing function to map the linear score into probability space $[0, 1]$. The boundary between classes is a flat hyperplane.</li>
+        <li><strong>Why They Ask:</strong> Deep conceptual check on model linearity.</li>
+        <li><strong>Common Mistake:</strong> Saying "it is non-linear because the sigmoid curve is an S-shape".</li>
+    </ul>
+
+    <h3>Q14. How does Logistic Regression optimize its weights? What solver did you use?</h3>
+    <ul>
+        <li><strong>Short Answer:</strong> It optimizes weights by minimizing Binary Cross-Entropy loss via gradient-based numerical optimization. We used the **L-BFGS** solver.</li>
+        <li><strong>Detailed Answer:</strong> Unlike Ordinary Least Squares (OLS) regression, Logistic Regression has no closed-form analytical solution. It uses numerical optimization. L-BFGS (Limited-memory Broyden&ndash;Fletcher&ndash;Goldfarb&ndash;Shanno) is a quasi-Newton method that approximates the inverse Hessian matrix using gradient evaluations, making it fast and memory-efficient for 10,000 sparse features.</li>
+        <li><strong>Why They Ask:</strong> Tests mathematical solver and optimization mechanics.</li>
+        <li><strong>Common Mistake:</strong> Saying it uses "exact matrix inversion $(X^T X)^{-1}$".</li>
+    </ul>
+
+    <h3>Q15. What is the mathematical significance of parameter $C$ in Logistic Regression?</h3>
+    <ul>
+        <li><strong>Short Answer:</strong> $C$ is the inverse of regularization strength ($C = 1/\lambda$). Smaller $C$ values enforce stronger weight shrinkage (preventing overfitting); larger $C$ values prioritize fitting training data closely.</li>
+        <li><strong>Detailed Answer:</strong> The objective function is $\min_{\mathbf{w}} C 	imes 	ext{Loss} + rac{1}{2} \|\mathbf{w}\|_2^2$. Dividing by $C$ shows that $C ightarrow 0$ penalizes any non-zero weight heavily, while $C ightarrow \infty$ disables regularization entirely. We set $C=1.0$ as a balanced default.</li>
+        <li><strong>Why They Ask:</strong> Regularization and bias-variance trade-off understanding.</li>
+        <li><strong>Common Mistake:</strong> Claiming larger $C$ means stronger regularization (it is the exact opposite!).</li>
+    </ul>
+
+    <!-- SECTION F: EVALUATION METRICS -->
+    <h2>Section F: Model Evaluation & Diagnostics</h2>
+
+    <h3>Q16. What is the Harmonic Mean and why does F1-Score use it instead of the Arithmetic Mean?</h3>
+    <ul>
+        <li><strong>Short Answer:</strong> The harmonic mean gives greater weight to smaller numbers. If either Precision or Recall is near zero, the F1-Score collapses to zero, exposing failure.</li>
+        <li><strong>Detailed Answer:</strong> If Precision = 1.0 and Recall = 0.0 (the model predicted zero positives correctly), the Arithmetic Mean is $rac{1.0 + 0.0}{2} = 0.50$ (misleadingly acceptable!). The Harmonic Mean is $2 	imes rac{1.0 	imes 0.0}{1.0 + 0.0} = \mathbf{0.0}$. It ensures a model cannot hide poor recall behind high precision.</li>
+        <li><strong>Why They Ask:</strong> Mathematical intuition behind evaluation metrics.</li>
+        <li><strong>Common Mistake:</strong> Saying "because it's the standard formula" without explaining the penalty on extreme values.</li>
+    </ul>
+
+    <h3>Q17. Explain your confusion matrix numbers: 4395, 545, 425, 4552.</h3>
+    <ul>
+        <li><strong>Short Answer:</strong> On 9,917 holdout test reviews: 4,395 True Negatives, 545 False Positives, 425 False Negatives, and 4,552 True Positives. Accuracy = 90.23%.</li>
+        <li><strong>Detailed Answer:</strong> False Positives (545) were negative reviews mistaken as positive (often due to sarcasm like "brilliant waste of time"). False Negatives (425) were positive reviews mistaken as negative (often nuanced critiques with balanced phrasing). The symmetric error profile confirms balanced performance with zero bias toward either class.</li>
+        <li><strong>Why They Ask:</strong> Proves you actually ran and analyzed your model.</li>
+        <li><strong>Common Mistake:</strong> Mixing up False Positives (Type I) with False Negatives (Type II).</li>
+    </ul>
+
+    <!-- SECTION G: TOUGH PROJECT SPECIFICS -->
+    <h2>Section G: Tough Project-Specific Scenarios</h2>
+
+    <h3>Q18. What happens if a user submits a review containing completely new words never seen in training?</h3>
+    <ul>
+        <li><strong>Short Answer:</strong> The new Out-of-Vocabulary (OOV) words are simply ignored by the TF-IDF vectorizer (receiving zero weight). The model bases its prediction on whatever remaining known words exist.</li>
+        <li><strong>Detailed Answer:</strong> The TF-IDF matrix has a fixed dimension of 10,000 columns. Any word not in the 10,000-vocabulary dictionary has no assigned column and is silently dropped during <code>transform()</code>. If a review consists <em>entirely</em> of unseen words, the feature vector is all zeros, and the model outputs the base prior probability via the intercept $b pprox 50\%$.</li>
+        <li><strong>Why They Ask:</strong> Production edge-case handling.</li>
+        <li><strong>Common Mistake:</strong> Claiming the vectorizer throws an error or crashes (it does not).</li>
+    </ul>
+
+    <h3>Q19. How would you modify your pipeline if you needed to support Hindi or mixed "Hinglish" reviews?</h3>
+    <ul>
+        <li><strong>Short Answer:</strong> Replace the English contraction and regex cleaner with a multilingual tokenizer, train on a Romanized Hindi/Hinglish dataset, or use a multilingual Transformer like mBERT or XLM-RoBERTa.</li>
+        <li><strong>Detailed Answer:</strong> Classical English TF-IDF cannot parse Devanagari script or transliterated slang ("mast picture thi", "bakwas movie"). We would collect a bilingual customer review dataset, apply subword tokenization (Byte-Pair Encoding / SentencePiece), and fine-tune a multilingual embedding model like <code>indic-bert</code> or <code>xlm-roberta-base</code>.</li>
+        <li><strong>Why They Ask:</strong> Tests adaptability to Indian industrial contexts (like Tata Power consumer feedback).</li>
+        <li><strong>Common Mistake:</strong> Saying "I will just pass it to Google Translate first" (adds external API dependency and latency).</li>
+    </ul>
+
+    <h3>Q20. Why didn't you use BERT or GPT for this project?</h3>
+    <ul>
+        <li><strong>Short Answer:</strong> For explainability, inference speed (&lt; 2.5 ms vs 200 ms), zero GPU requirements, and lightweight deployment (~15 MB vs 500 MB+).</li>
+        <li><strong>Detailed Answer:</strong> Engineering is about selecting the simplest architecture that solves the problem within operational constraints. For standard binary movie review sentiment, TF-IDF + Logistic Regression achieves **90.23% accuracy** on CPU with near-instantaneous inference and 100% auditable word weights. Deploying BERT would increase infrastructure costs by &times;20 for a marginal 3% accuracy gain.</li>
+        <li><strong>Why They Ask:</strong> Evaluates practical engineering judgment vs. blind trend-chasing.</li>
+        <li><strong>Common Mistake:</strong> Apologizing for not using BERT; defend your architecture proudly!</li>
+    </ul>
+</div>
+
+
+<div class="page-break-before">
+    <h1>PART 20 &mdash; SIMULATED INTERVIEW: 30+ REALISTIC CROSS-EXAMINATION CHAINS</h1>
+    <p><em>In a top-tier technical interview like Tata Power GET AI/ML, interviewers do not ask isolated questions. They drill down in continuous logical chains to see where your knowledge breaks. Below are the exact follow-up chains you will encounter:</em></p>
+
+    <!-- CHAIN 1 -->
+    <div class="dialogue-box">
+        <h4>Chain 1: Project Genesis & Architecture Selection</h4>
+        <p><strong>Interviewer:</strong> "Walk me through your Movie Review Sentiment Analysis project in 90 seconds."</p>
+        <p><strong>You:</strong> "I developed an end-to-end sentiment classification system on 50,000 IMDB reviews. The raw text goes through deterministic NLP preprocessing where HTML is excised and contractions are expanded to preserve negation words. I split the data using an 80/20 stratified partition to prevent data leakage, vectorized the text into a 10,000-dimensional unigram and bigram TF-IDF sparse matrix, and benchmarked Logistic Regression against Multinomial Naive Bayes. Logistic Regression emerged as the winning model, delivering 90.23% accuracy and a 90.38% F1-score on 9,917 holdout test reviews. I serialized the model and vectorizer with Joblib and deployed an interactive Streamlit platform featuring real-time Explainable AI token contributions and sub-3ms inference latency."</p>
+        
+        <p><strong>Interviewer:</strong> "Why did you choose Logistic Regression instead of an advanced Transformer like BERT?"</p>
+        <p><strong>You:</strong> "For three specific engineering reasons: First, explainability &mdash; in Logistic Regression, every word has an exact mathematical coefficient ($w_j$), so I can explain every decision to business stakeholders. Second, latency &mdash; our CPU inference executes in 2.1 milliseconds compared to 150-200ms for BERT. Third, infrastructure cost &mdash; our serialized model is only 80 KB and requires zero GPU overhead, while achieving over 90% benchmark accuracy. It was the optimal engineering trade-off."</p>
+
+        <p><strong>Interviewer:</strong> "Fair. But Logistic Regression is a linear classifier. How can it capture non-linear language patterns?"</p>
+        <p><strong>You:</strong> "That is why feature engineering with n-grams was crucial. In a raw unigram bag-of-words space, language relationships are non-linear because word order matters. By expanding our feature space to include bigrams ($N=2$) with 10,000 dimensions, combinations like 'not good' and 'must watch' become independent linear dimensions with their own distinct coefficients. In high-dimensional sparse spaces, linear hyperplanes are remarkably powerful."</p>
+    </div>
+
+    <!-- CHAIN 2 -->
+    <div class="dialogue-box">
+        <h4>Chain 2: Data Hygiene & Data Leakage Prevention</h4>
+        <p><strong>Interviewer:</strong> "Did you clean the entire dataset before splitting it into train and test?"</p>
+        <p><strong>You:</strong> "Row-level text cleaning &mdash; such as lowercasing, HTML stripping, and regex normalization &mdash; is applied to each document independently and does not create data leakage. However, statistical vectorization was strictly isolated: I performed the 80/20 stratified split <em>before</em> vectorization, called <code>fit_transform()</code> exclusively on the training set, and applied only <code>transform()</code> on the test set."</p>
+
+        <p><strong>Interviewer:</strong> "What exactly would leak if you had called <code>fit_transform()</code> on the whole dataset?"</p>
+        <p><strong>You:</strong> "Two things would leak: First, the Inverse Document Frequency (IDF) weights &mdash; the model would calculate term rarity using test set document frequencies. Second, the vocabulary list &mdash; the top 10,000 most frequent terms would be influenced by words appearing in the test set. That would give our training model prior knowledge of the test set, creating artificially inflated metrics that fail in production."</p>
+
+        <p><strong>Interviewer:</strong> "I noticed you dropped 418 duplicate reviews. Why does that matter?"</p>
+        <p><strong>You:</strong> "If identical reviews exist in the raw dataset, random splitting can place one copy in the training set and another in the test set. The model would then be evaluated on text it had already memorized during training &mdash; another subtle form of data leakage. Deduplication guarantees that test reviews are 100% genuine out-of-sample documents."</p>
+    </div>
+
+    <!-- CHAIN 3 -->
+    <div class="dialogue-box">
+        <h4>Chain 3: Negation Handling & Sarcasm Edge Cases</h4>
+        <p><strong>Interviewer:</strong> "If a user enters: 'The movie was not good', how does your model know it's negative?"</p>
+        <p><strong>You:</strong> "Through two synchronized steps: First, our preprocessor expands contractions so words like 'wasn't' or 'didn't' become 'was not' and 'did not'. Second, our TF-IDF vectorizer extracts bigrams with <code>ngram_range=(1, 2)</code>. The pair 'not good' is an explicit feature in our vocabulary and has a large negative coefficient of -2.646, which mathematically overrides the standalone positive weight of 'good'."</p>
+
+        <p><strong>Interviewer:</strong> "What if the review is: 'What a glorious disaster this movie was'? How does it perform?"</p>
+        <p><strong>You:</strong> "That exposes the classical limitation of n-gram bag-of-words models: sarcasm. The unigram 'glorious' has a positive weight of +1.8, while 'disaster' has a negative weight of -2.2. Depending on other words in the sentence, the model may struggle with tonal irony. To handle complex sarcasm in production, we would need semantic attention models like DistilBERT or sentiment lexicons trained on ironic discourse."</p>
+    </div>
+</div>
+
+<div class="page-break-before">
+    <h1>PART 21 &mdash; TATA POWER AI/ML JOB DESCRIPTION ALIGNMENT</h1>
+    <p><em>Connect your project directly to what Tata Power seeks in a Graduate Engineer Trainee (AI/ML):</em></p>
+
+    <table>
+        <tr>
+            <th>Tata Power GET Requirement</th>
+            <th>How This Project Demonstrates It</th>
+            <th>What This Project DOES NOT Cover (Be Honest!)</th>
+        </tr>
+        <tr>
+            <td><strong>Python Programming & Scripting</strong></td>
+            <td>Modular, object-oriented source code in <code>src/</code> with type hints, custom classes, regex, and clean exception handling.</td>
+            <td>Does not cover asynchronous networking (<code>asyncio</code>) or C-extensions.</td>
+        </tr>
+        <tr>
+            <td><strong>Data Wrangling & Analysis (Pandas/NumPy)</strong></td>
+            <td>Handling 50,000 tabular records, missing value verification, deduplication, vectorized label transformations.</td>
+            <td>Does not cover distributed big-data engines like Apache Spark or PySpark.</td>
+        </tr>
+        <tr>
+            <td><strong>Applied Machine Learning Lifecycle</strong></td>
+            <td>Complete lifecycle: Data Ingestion $ightarrow$ EDA $ightarrow$ Partitioning $ightarrow$ Feature Engineering $ightarrow$ Modeling $ightarrow$ Evaluation $ightarrow$ Serialization $ightarrow$ UI Deployment.</td>
+            <td>Does not cover deep reinforcement learning or complex ML pipelines like Kubeflow.</td>
+        </tr>
+        <tr>
+            <td><strong>Statistical Model Evaluation</strong></td>
+            <td>Confusion matrices, Type I and Type II errors, Precision, Recall, F1-Score, and threshold analysis.</td>
+            <td>Does not cover Bayesian A/B testing frameworks.</td>
+        </tr>
+        <tr>
+            <td><strong>Production Deployment</strong></td>
+            <td>Streamlit interactive web dashboard, Joblib model serialization, sub-3ms latency, and Docker configuration.</td>
+            <td>Does not cover Kubernetes cluster orchestration or automated CI/CD retraining pipelines.</td>
+        </tr>
+    </table>
+
+    <h2>How to Tie This Project to Tata Power's Core Business:</h2>
+    <ul>
+        <li><strong>Consumer Grievance Prioritization:</strong> Tata Power manages millions of customer service interactions across Mumbai, Delhi, and Odisha. This exact NLP classification pipeline can ingest incoming consumer complaint emails and automatically classify sentiment urgency &mdash; routing dangerous complaints (e.g. "live wire sparking", "transformer smoking", "blackout in ICU ward") to emergency response crews within seconds.</li>
+        <li><strong>Equipment Maintenance Log Analytics:</strong> Field technicians regularly enter qualitative notes during routine inspection of substations and solar arrays. Our TF-IDF classification engine can analyze these text logs to detect early equipment failure patterns ("heavy vibration", "abnormal oil seepage") before catastrophic power outages occur.</li>
+    </ul>
+</div>
+
+<div class="page-break-before">
+    <h1>PART 22 &mdash; RESUME DEFENSE: WORD-BY-WORD SCRUTINY</h1>
+
+    <h2>Your Exact Verified Resume Bullets:</h2>
+    <div class="resume-box">
+        <p><strong>Movie Review Sentiment Analysis System | Python, NLP, Scikit-Learn, Streamlit</strong></p>
+        <ul>
+            <li>Engineered an end-to-end sentiment classification pipeline on 50,000 IMDB reviews, achieving <strong>90.23% Accuracy</strong> and <strong>90.38% F1-Score</strong> using TF-IDF (Unigrams + Bigrams) and L2-regularized Logistic Regression.</li>
+            <li>Designed custom sentiment-preserving text normalization and contraction expansion to maintain contextual polarity and accurately resolve negation phrases (e.g., <em>"not good"</em>).</li>
+            <li>Evaluated and benchmarked Logistic Regression against Multinomial Naive Bayes using Stratified Train-Test splits, Confusion Matrices, Precision, and Recall to prevent Data Leakage.</li>
+            <li>Deployed an interactive web application with <strong>Streamlit</strong> and serialized inference pipelines with <strong>Joblib</strong>, achieving <strong>&lt; 2.5ms</strong> real-time prediction latency on standard CPUs.</li>
+        </ul>
+    </div>
+
+    <h2>Word-by-Word Defense Matrix:</h2>
+    <table>
+        <tr>
+            <th>Term in Resume</th>
+            <th>What the Interviewer Will Ask</th>
+            <th>Your Instant Technical Defense</th>
+        </tr>
+        <tr>
+            <td><strong>"50,000 reviews"</strong></td>
+            <td>"Did you train on all 50,000?"</td>
+            <td>"No, I removed 418 duplicates, leaving 49,582 clean reviews. Then I performed an 80/20 stratified split: 39,665 reviews for training, and 9,917 held out for final testing."</td>
+        </tr>
+        <tr>
+            <td><strong>"90.23% Accuracy"</strong></td>
+            <td>"Is that on training or testing data?"</td>
+            <td>"That is strictly on the 9,917 holdout test reviews. The model correctly classified 8,947 out of 9,917 unseen test reviews."</td>
+        </tr>
+        <tr>
+            <td><strong>"TF-IDF"</strong></td>
+            <td>"What is the mathematical formula?"</td>
+            <td>"$	ext{TF-IDF} = 	ext{TF} 	imes 	ext{IDF}$. I used sublinear TF ($1 + \log(	ext{tf})$) and smooth IDF ($\log((1+N)/(1+DF)) + 1$) with a vocabulary of 10,000 n-grams."</td>
+        </tr>
+        <tr>
+            <td><strong>"Data Leakage"</strong></td>
+            <td>"How exactly did you prevent it?"</td>
+            <td>"By splitting the data before vectorization, calling <code>fit_transform()</code> only on training data, and calling <code>transform()</code> on test data."</td>
+        </tr>
+        <tr>
+            <td><strong>"&lt; 2.5ms latency"</strong></td>
+            <td>"Why is it so fast?"</td>
+            <td>"Inference only requires a sparse matrix lookup, a dot product on non-zero terms ($<50$ multiplications), and a single scalar Sigmoid calculation on CPU."</td>
+        </tr>
+    </table>
+</div>
+
+<div class="page-break-before">
+    <h1>PART 23 &mdash; RAPID REVISION CHEAT SHEETS</h1>
+
+    <h2>Cheat Sheet 1: NLP & Preprocessing</h2>
+    <table>
+        <tr>
+            <th>Concept</th>
+            <th>Formula / Rule</th>
+            <th>Key Takeaway</th>
+        </tr>
+        <tr>
+            <td>HTML Removal</td>
+            <td><code>re.sub(r'&lt;.*?&gt;', ' ', text)</code></td>
+            <td>Removes web tags without removing text.</td>
+        </tr>
+        <tr>
+            <td>Contraction Expansion</td>
+            <td><code>"didn't" -> "did not"</code></td>
+            <td><strong>Preserves negation words before punctuation cleaning.</strong></td>
+        </tr>
+        <tr>
+            <td>Lowercasing</td>
+            <td><code>text.lower()</code></td>
+            <td>Prevents duplicated vocabulary dimensions.</td>
+        </tr>
+        <tr>
+            <td>N-grams</td>
+            <td>Unigram (1), Bigram (2), Trigram (3)</td>
+            <td>Captures localized phrase order (e.g. "not good").</td>
+        </tr>
+    </table>
+
+    <h2>Cheat Sheet 2: TF-IDF & Machine Learning</h2>
+    <table>
+        <tr>
+            <th>Concept</th>
+            <th>Formula</th>
+            <th>Key Takeaway</th>
+        </tr>
+        <tr>
+            <td>Term Frequency (TF)</td>
+            <td>$1 + \log(	ext{count})$</td>
+            <td>Log scaling prevents repeated words from dominating.</td>
+        </tr>
+        <tr>
+            <td>Inverse Doc Frequency (IDF)</td>
+            <td>$\log\left(rac{1+N}{1+DF}ight) + 1$</td>
+            <td>Penalizes common words (film); boosts rare words (masterpiece).</td>
+        </tr>
+        <tr>
+            <td>Sigmoid Function</td>
+            <td>$\sigma(z) = rac{1}{1 + e^{-z}}$</td>
+            <td>Maps linear score $(-\infty, +\infty)$ to probability $[0, 1]$.</td>
+        </tr>
+        <tr>
+            <td>Decision Threshold</td>
+            <td>$P \ge 0.50 \implies 	ext{Positive}$</td>
+            <td>Boundary where linear score $z = 0$.</td>
+        </tr>
+        <tr>
+            <td>L2 Regularization</td>
+            <td>$rac{1}{2C} \sum w_j^2$</td>
+            <td>Shrinks model weights to prevent overfitting.</td>
+        </tr>
+    </table>
+
+    <h2>Cheat Sheet 3: Evaluation Metrics</h2>
+    <table>
+        <tr>
+            <th>Metric</th>
+            <th>Formula</th>
+            <th>Our Project Score</th>
+            <th>Core Interpretation</th>
+        </tr>
+        <tr>
+            <td><strong>Accuracy</strong></td>
+            <td>$rac{TP + TN}{	ext{Total}}$</td>
+            <td><strong>90.23%</strong></td>
+            <td>Overall correct prediction percentage.</td>
+        </tr>
+        <tr>
+            <td><strong>Precision</strong></td>
+            <td>$rac{TP}{TP + FP}$</td>
+            <td><strong>89.32%</strong></td>
+            <td>Exactness: Low false positive alarm rate.</td>
+        </tr>
+        <tr>
+            <td><strong>Recall</strong></td>
+            <td>$rac{TP}{TP + FN}$</td>
+            <td><strong>91.46%</strong></td>
+            <td>Completeness: High detection of true positives.</td>
+        </tr>
+        <tr>
+            <td><strong>F1-Score</strong></td>
+            <td>$2 	imes rac{P 	imes R}{P + R}$</td>
+            <td><strong>90.38%</strong></td>
+            <td>Harmonic mean balancing precision and recall.</td>
+        </tr>
+    </table>
+</div>
+
+<div class="page-break-before">
+    <h1>PART 24 &mdash; 30 MINUTES BEFORE THE INTERVIEW: HIGH-IMPACT REVISION</h1>
+    <p><em>Read this single page 30 minutes before entering your interview. It contains the essential facts you must speak with confidence:</em></p>
+
+    <div class="meta-box" style="width: 95%;">
+        <h3>⚡ THE 10 GOLDEN FACTS OF YOUR PROJECT:</h3>
+        <ol>
+            <li><strong>Dataset:</strong> 50,000 IMDB reviews $ightarrow$ 418 duplicates dropped $ightarrow$ <strong>49,582 clean reviews</strong> (24,884 Positive / 24,698 Negative &mdash; balanced 50:50).</li>
+            <li><strong>Split:</strong> Stratified 80% Train (39,665 reviews) / 20% Test (9,917 reviews). Random state = 42.</li>
+            <li><strong>Data Leakage Prevention:</strong> <code>fit_transform()</code> strictly on training set; <code>transform()</code> on test set.</li>
+            <li><strong>Preprocessing:</strong> HTML unescaping, contraction expansion (<code>"didn't"</code> $ightarrow$ <code>"did not"</code>), lowercasing, non-alphanumeric removal, whitespace collapsing.</li>
+            <li><strong>Why No Stopword Removal:</strong> Deleting stopwords removes <code>"not"</code> and <code>"no"</code>, inverting sentiment polarity.</li>
+            <li><strong>Feature Space:</strong> TF-IDF with unigrams and bigrams (<code>ngram_range=(1, 2)</code>), <code>max_features=10000</code>, <code>min_df=3</code>, <code>sublinear_tf=True</code>.</li>
+            <li><strong>Winning Model:</strong> Logistic Regression ($C=1.0$, L-BFGS solver).</li>
+            <li><strong>Test Accuracy:</strong> <strong>90.23%</strong> (8,947 / 9,917 correct). Test F1-Score: <strong>90.38%</strong>.</li>
+            <li><strong>Baseline Comparison:</strong> Multinomial Naive Bayes achieved 86.95% accuracy and 87.18% F1-score. Logistic Regression won because it does not assume feature independence.</li>
+            <li><strong>Inference & Deployment:</strong> Model and vectorizer serialized using <code>joblib</code>; served via Streamlit with sub-2.5ms latency.</li>
+        </ol>
+    </div>
+
+    <h2>The Top 5 Questions You Are Guaranteed to Be Asked:</h2>
+    <ul>
+        <li><strong>1. "Why did you use TF-IDF instead of CountVectorizer?"</strong><br>
+        &rarr; <em>"CountVectorizer only counts frequencies, letting generic words like 'movie' dominate. TF-IDF penalizes common words and amplifies discriminative sentiment words like 'masterpiece'."</em></li>
+        
+        <li><strong>2. "How did you prevent data leakage?"</strong><br>
+        &rarr; <em>"I performed an 80/20 stratified train-test split before feature extraction. The vectorizer was fitted exclusively on the training set, so no test set vocabulary or IDF frequencies influenced model weights."</em></li>
+        
+        <li><strong>3. "Why did Logistic Regression beat Naive Bayes?"</strong><br>
+        &rarr; <em>"Naive Bayes assumes words are conditionally independent, which natural language violates (e.g. 'not' and 'good'). Logistic Regression directly optimizes the decision boundary without independence constraints."</em></li>
+        
+        <li><strong>4. "How does your model handle negation like 'not good'?"</strong><br>
+        &rarr; <em>"Through contraction expansion to preserve 'not', and bigram feature extraction ($N=2$). The bigram 'not good' received a strong negative coefficient (-2.646), overpowering the positive weight of 'good'."</em></li>
+        
+        <li><strong>5. "How does this connect to Tata Power?"</strong><br>
+        &rarr; <em>"It can be directly deployed to classify incoming consumer complaints and equipment inspection logs, automatically routing urgent safety grievances (e.g. sparking lines, transformer faults) to field crews."</em></li>
+    </ul>
+</div>
+
+<div class="page-break-before">
+    <h1>PART 25 &mdash; MASTER PREPARATION CHECKLIST</h1>
+    <p><em>Check off each item once you can explain it out loud without looking at notes:</em></p>
+
+    <div class="checklist">
+        <p>[ &nbsp; ] <strong>1. AI/ML Foundations:</strong> I can explain the difference between Supervised vs. Unsupervised Learning, and Classification vs. Regression.</p>
+        <p>[ &nbsp; ] <strong>2. Python Core:</strong> I can explain why lists, tuples, dictionaries, and sets are used in different parts of our project.</p>
+        <p>[ &nbsp; ] <strong>3. Pandas & NumPy:</strong> I can explain <code>read_csv</code>, <code>drop_duplicates</code>, <code>isnull().sum()</code>, and how NumPy contiguous arrays speed up dot products.</p>
+        <p>[ &nbsp; ] <strong>4. NLP Preprocessing:</strong> I can explain why contraction expansion is critical before stripping punctuation to preserve negation.</p>
+        <p>[ &nbsp; ] <strong>5. Stopwords Trap:</strong> I can explain why blind stopword removal inverts sentiment from "not good" to "good".</p>
+        <p>[ &nbsp; ] <strong>6. Stemming vs. Lemmatization:</strong> I can explain why we avoided aggressive stemming in favor of n-gram TF-IDF.</p>
+        <p>[ &nbsp; ] <strong>7. TF-IDF Formula:</strong> I can write and explain both TF ($1+\log(	ext{tf})$) and Smooth IDF ($\log((1+N)/(1+DF))+1$).</p>
+        <p>[ &nbsp; ] <strong>8. Data Leakage:</strong> I can explain why <code>fit_transform(X_train)</code> and <code>transform(X_test)</code> is mandatory.</p>
+        <p>[ &nbsp; ] <strong>9. Logistic Regression Math:</strong> I can write the linear score $z = \mathbf{w}^T \mathbf{x} + b$, the Sigmoid equation $\sigma(z)$, and explain decision threshold 0.50.</p>
+        <p>[ &nbsp; ] <strong>10. L2 Regularization:</strong> I can explain the penalty term $rac{1}{2C} \sum w_j^2$ and the role of parameter $C=1.0$.</p>
+        <p>[ &nbsp; ] <strong>11. Naive Bayes:</strong> I can state Bayes' theorem, the "naive" conditional independence assumption, and Laplace smoothing ($lpha=1.0$).</p>
+        <p>[ &nbsp; ] <strong>12. Confusion Matrix:</strong> I can state our exact test numbers (4,395 TN, 545 FP, 425 FN, 4,552 TP) and explain Type I vs. Type II errors.</p>
+        <p>[ &nbsp; ] <strong>13. Metrics:</strong> I can define Accuracy (90.23%), Precision (89.32%), Recall (91.46%), and F1-Score (90.38%).</p>
+        <p>[ &nbsp; ] <strong>14. Joblib Serialization:</strong> I can explain why the vectorizer must be saved alongside the model to preserve feature index alignments.</p>
+        <p>[ &nbsp; ] <strong>15. Streamlit Architecture:</strong> I can explain <code>@st.cache_resource</code> and the reactive execution model.</p>
+        <p>[ &nbsp; ] <strong>16. Real-Time Explainability:</strong> I can explain how token contributions are calculated ($w_j 	imes 	ext{tfidf}_j$) to show positive vs. negative drivers.</p>
+        <p>[ &nbsp; ] <strong>17. Project Limitations:</strong> I can explain how sarcasm and long-distance negation challenge classical n-gram models.</p>
+        <p>[ &nbsp; ] <strong>18. Tata Power Connection:</strong> I can articulate how this pipeline translates to consumer grievance prioritization and equipment maintenance logs.</p>
+        <p>[ &nbsp; ] <strong>19. Live Application:</strong> I can launch and demonstrate the Streamlit app on <code>http://localhost:8502</code> or the deployed URL.</p>
+        <p>[ &nbsp; ] <strong>20. Resume Defense:</strong> I can defend every single word, number, and technology mentioned in my resume bullet points.</p>
+    </div>
+
+    <hr>
+    <p style="text-align: center; color: #475569; font-weight: 600; font-size: 11pt;">
+        &mdash; END OF MASTER HANDBOOK &mdash;<br>
+        <em>Master these 25 parts and you will comfortably stand among the top 1% of candidates in your Tata Power AI/ML interview. Good luck!</em>
+    </p>
+</div>
+
+
+</body>
+</html>
