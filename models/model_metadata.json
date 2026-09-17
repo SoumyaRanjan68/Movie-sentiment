@@ -1,0 +1,30 @@
+{
+    "best_model": "Logistic Regression",
+    "metrics_summary": {
+        "Logistic Regression": {
+            "model_name": "Logistic Regression",
+            "accuracy": 0.9022889986891197,
+            "precision": 0.8932496075353218,
+            "recall": 0.9146071930882057,
+            "f1_score": 0.9038022436215626
+        },
+        "Multinomial Naive Bayes": {
+            "model_name": "Multinomial Naive Bayes",
+            "accuracy": 0.8695169910255117,
+            "precision": 0.8597382301230709,
+            "recall": 0.8842676311030742,
+            "f1_score": 0.8718304278922345
+        }
+    },
+    "vectorizer_params": {
+        "ngram_range": [
+            1,
+            2
+        ],
+        "max_features": 10000,
+        "min_df": 3,
+        "sublinear_tf": true
+    },
+    "train_samples": 39665,
+    "test_samples": 9917
+}
